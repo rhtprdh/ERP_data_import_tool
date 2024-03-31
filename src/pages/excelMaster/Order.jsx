@@ -308,7 +308,8 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
                        
                         setHead(true);
                     vrno = await vrnoNumber('',row.Voucher_Date)
-                      let l=jsonData.length
+                      let l=jsonData.length;
+                      console.log(tranType);
                     if(vrno){
 
                         
@@ -885,7 +886,9 @@ useEffect( () =>{
     }else if(entity_code){
      await axios.get(`/api/entity/:${entity_code}`)
       .then((response) => {
-        setGstType(response.data.data.gst_code); 
+        // setGstType(response.data.data.gst_code); 
+        setGstType(response.data.data.state_code); 
+        console.log(response.data.data.state_code);
       })
       .catch((error) => {
         console.log(error)

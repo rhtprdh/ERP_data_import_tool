@@ -14,7 +14,7 @@ import SearchableTable from './selectComponents/SearchableTable.jsx'
 import { Provider } from 'react-redux'
 import { store } from './app/Store.js'
 import CropYearMaster2 from './pages/masters/cropYearMaster/CropYearMaster2.jsx'
-import QrTagWeightCapture from './pages/transactionComp/qrtagWeight/qrTagWeightCapture.jsx'
+// import QrTagWeightCapture from './pages/transactionComp/qrtagWeight/qrTagWeightCapture.jsx'
 import CbjExcel from './pages/excelMaster/CbjExcel.jsx'
 import EntityMaster from './pages/masters/EntityMaster/EntityMaster.jsx'
 import EntityMasterTwo from './pages/masters/EntityMaster/EntityMasterTwo.jsx'
@@ -143,11 +143,11 @@ const router = createBrowserRouter([
         element: 
         <SearchableTable />
       },
-      {
-        path: "/qr-tag-weight/",
-        element: 
-        <QrTagWeightCapture/>
-      },
+      // {
+      //   path: "/qr-tag-weight/",
+      //   element: 
+      //   <QrTagWeightCapture/>
+      // },
       {
         path: "/cbj_excel/",
         element: 
