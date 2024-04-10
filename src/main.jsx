@@ -1,40 +1,40 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './pages/Home.jsx'
-import DivisionMaster1 from './pages/masters/Division master/DivisionMaster1.jsx'
-import DivisionMaster from './pages/masters/Division master/DivisionMaster.jsx'
-import DivisionMasterEdit from './pages/masters/Division master/DivisionMasterEdit.jsx'
-import Qrtag from './pages/transactionComp/qrtag/Qrtag.jsx'
-import QrTagPrint from './pages/masters/reportsAndPrints/QrTagPrint.jsx'
-import CropYearMaster from './pages/masters/cropYearMaster/CropYearMaster.jsx'
-import SearchableTable from './selectComponents/SearchableTable.jsx'
-import { Provider } from 'react-redux'
-import { store } from './app/Store.js'
-import CropYearMaster2 from './pages/masters/cropYearMaster/CropYearMaster2.jsx'
-// import QrTagWeightCapture from './pages/transactionComp/qrtagWeight/qrTagWeightCapture.jsx'
-import CbjExcel from './pages/excelMaster/CbjExcel.jsx'
-import EntityMaster from './pages/masters/EntityMaster/EntityMaster.jsx'
-import EntityMasterTwo from './pages/masters/EntityMaster/EntityMasterTwo.jsx'
-import EntityMasterEdit from './pages/masters/EntityMaster/EntityMasterEdit.jsx'
-import CbjExcelDaybook from './pages/excelMaster/CbjExcelDaybook.jsx'
-import CbjExcelDaybookDrCr from './pages/excelMaster/CbjExcelDaybookDrCr.jsx'
-import SeriesMaster from './pages/masters/SeriesMaster/SeriesMaster.jsx'
-import SeriesMasterTwo from './pages/masters/SeriesMaster/SeriesMasterTwo.jsx'
-import SeriesMasterEdit from './pages/masters/SeriesMaster/SeriesMasterEdit.jsx'
-import SeriesSeq from './pages/masters/seriesSeq/SeriesSeq.jsx'
-import SeriesSeqEdit from './pages/masters/seriesSeq/SeriesSeqEdit.jsx'
-import CbjExcelDaybookDrCrBackUp from './pages/excelMaster/CbjExcelDaybookDrCrBackUp.jsx'
-import IndentImport from './pages/excelMaster/IndentImport.jsx'
-import Order from './pages/excelMaster/Order.jsx'
-import StaxMaster from './pages/masters/StaxMaster/StaxMaster.jsx'
-import StaxMasterTwo from './pages/masters/StaxMaster/StaxMasterTwo.jsx'
-import StaxMasterEdit from './pages/masters/StaxMaster/StaxMasterEdit.jsx'
-import AddSplitter from './pages/excelMaster/AddSplitter.jsx'
-import SeriesSeqTwo from './pages/masters/seriesSeq/SeriesSeqTwo.jsx'
-import ProductionImport from './pages/excelMaster/ProductionImport.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Home from './pages/Home.jsx';
+import DivisionMaster1 from './pages/masters/Division master/DivisionMaster1.jsx';
+import DivisionMaster from './pages/masters/Division master/DivisionMaster.jsx';
+import DivisionMasterEdit from './pages/masters/Division master/DivisionMasterEdit.jsx';
+import Qrtag from './pages/transactionComp/qrtag/Qrtag.jsx';
+import QrTagPrint from './pages/masters/reportsAndPrints/QrTagPrint.jsx';
+import CropYearMaster from './pages/masters/cropYearMaster/CropYearMaster.jsx';
+import SearchableTable from './selectComponents/SearchableTable.jsx';
+import { Provider } from 'react-redux';
+import { store } from './app/Store.js';
+import CropYearMaster2 from './pages/masters/cropYearMaster/CropYearMaster2.jsx';
+// import QrTagWeightCapture from './pages/transactionComp/qrtagWeight/qrTagWeightCapture.jsx'fit
+import CbjExcel from './pages/excelMaster/CbjExcel.jsx';
+import EntityMaster from './pages/masters/EntityMaster/EntityMaster.jsx';
+import EntityMasterTwo from './pages/masters/EntityMaster/EntityMasterTwo.jsx';
+import EntityMasterEdit from './pages/masters/EntityMaster/EntityMasterEdit.jsx';
+import CbjExcelDaybook from './pages/excelMaster/CbjExcelDaybook.jsx';
+import CbjExcelDaybookDrCr from './pages/excelMaster/CbjExcelDaybookDrCr.jsx';
+import SeriesMaster from './pages/masters/SeriesMaster/SeriesMaster.jsx';
+import SeriesMasterTwo from './pages/masters/SeriesMaster/SeriesMasterTwo.jsx';
+import SeriesMasterEdit from './pages/masters/SeriesMaster/SeriesMasterEdit.jsx';
+import SeriesSeq from './pages/masters/seriesSeq/SeriesSeq.jsx';
+import SeriesSeqEdit from './pages/masters/seriesSeq/SeriesSeqEdit.jsx';
+import CbjExcelDaybookDrCrBackUp from './pages/excelMaster/CbjExcelDaybookDrCrBackUp.jsx';
+import IndentImport from './pages/excelMaster/IndentImport.jsx';
+import Order from './pages/excelMaster/Order.jsx';
+import StaxMaster from './pages/masters/StaxMaster/StaxMaster.jsx';
+import StaxMasterTwo from './pages/masters/StaxMaster/StaxMasterTwo.jsx';
+import StaxMasterEdit from './pages/masters/StaxMaster/StaxMasterEdit.jsx';
+import AddSplitter from './pages/excelMaster/AddSplitter.jsx';
+import SeriesSeqTwo from './pages/masters/seriesSeq/SeriesSeqTwo.jsx';
+import ProductionImport from './pages/excelMaster/ProductionImport.jsx';
 
 const editMode="true"
 let viewMode=true

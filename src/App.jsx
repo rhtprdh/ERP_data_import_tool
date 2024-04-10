@@ -3,8 +3,7 @@
 // import viteLogo from '/vite.svg'
 // import './App.css'
 
-import { Outlet } from "react-router-dom"
-import DivisionMaster1 from "./pages/masters/Division master/DivisionMaster1"
+import { Outlet } from "react-router-dom";
 
 
 
