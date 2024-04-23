@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { useForm } from "react-hook-form"
-import {Select, Input, Button} from '../../../components/Index'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
+import {Select, Input, Button} from '../../../components/Index';
+import { useNavigate, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
 function EntityMasterTwo({ rows_data  }) {
-  // rows_data ={
-    // div_code : "FsadG" ,div_name:  " dasdasFINKAL GRAND DIVISION", entity_code:"ER"}
   const { register, handleSubmit, watch, setValue,reset, control, getValues } = useForm({
     defaultValues: {
         entity_code: rows_data?.entity_code || "",
         entity_name: rows_data?.entity_name || "",
         gst_code: rows_data?.gst_code || "",
-        // div_code: rows_data?.div_code || "",
-        // div_name: rows_data?.div_name || "",
-    
     },
 });
 
@@ -27,7 +22,7 @@ function EntityMasterTwo({ rows_data  }) {
           .then((response) => {
             alert(`Entity updated Successfully`);
             reset();
-            navigate(-1)
+            navigate(-1);
           })
           .catch((error) => {
             console.error('Error adding data:', error);
@@ -36,10 +31,7 @@ function EntityMasterTwo({ rows_data  }) {
         }else if(!rows_data){
         Axios.post(`/api/entity`, data)
       .then((response) => {
-        alert(`Entity Added Successfully`)
-        // Clear form fields after successful submission
-        // setPostData({ name: '', email: '' });
-      
+        alert(`Entity Added Successfully`);
         reset();
       })
       .catch((error) => {
@@ -47,11 +39,7 @@ function EntityMasterTwo({ rows_data  }) {
       });
       }
     }
-
-    
-      // console.log(watch("div_code")) // watch input value by passing the name of it
-    
-      const handleInputChange = (event, length) => {
+        const handleInputChange = (event, length) => {
         const value = event.target.value.slice(0, length).toUpperCase();
         event.target.value = value;
       };
@@ -64,7 +52,6 @@ function EntityMasterTwo({ rows_data  }) {
 
     <form onSubmit={handleSubmit(submit)} className="mr-1">
     <div className="flex">
-        {/* <div className="flex w-1/2"> */}
         <div className="w-1/3">
         <Input
         label='Entity'
@@ -77,7 +64,6 @@ function EntityMasterTwo({ rows_data  }) {
         {...register("entity_name", { required: true })}
         onChange ={(event) =>{ handleInputChange(event,150)}}
         />
-        {/* </div> */}
         </div>
         {/* <div className="flex w-1/2">
         <div className="w-1/3">

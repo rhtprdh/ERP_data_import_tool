@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 
 function Home({dashboardType}) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   if(dashboardType === 'main'){
       return(
         <div className="grid gap-4 m-4 sm:grid-cols-12">
@@ -18,27 +18,21 @@ function Home({dashboardType}) {
         </div>
         </Link>
       </div>
-      )
+      );
   }
  if(dashboardType === 'mast'){
   return (
 <div >
-{/* {(!isMainDash) && ( */}
-  
-    {/*  )} */}
- {/* {isMaster &&  */}
     <div className="flex justify-end">
     <Button className="mt-5 ml-5 mr-5 mb-5 px-6 text-lg" children='Back' onClick={() => navigate(-1)} />
   </div>
     <div className="grid gap-4 m-4 sm:grid-cols-12">
-       {/* <Link to="/crop-year-master">
+        {/* <Link to="/crop-year-master">
   <div className="col-end-5 col-span-2 bg-blue-300 text-center py-3">Crop Year Master</div>
-  </Link> */}
-  {/* <div className=" min-h-[100px] rounded shadow-xl sm:col-span-4 bg-blue-300 "> */}
+  </Link>  */}
   <Link to="/entity-master" className=" min-h-[100px] rounded shadow-xl sm:col-span-4 bg-blue-300 flex justify-center items-center">
   <div className=" text-center text-2xl"  >Entity Master</div>
   </Link>
-  {/* </div> */}
  
   
  
@@ -75,9 +69,9 @@ if(dashboardType === 'tran'){
   </Link>
   <Link to="/qr-tag-weight">
   <div className="col-end-7 col-span-2  bg-blue-300 text-center py-3">QR Tag Weight</div>
-  </Link>*/}
+  </Link>
   
-  {/* <Link  to="/cbj_excel"> 
+  <Link  to="/cbj_excel"> 
   <div className="col-start-1 col-end-7  bg-blue-300 text-center py-3">CBJ Excel</div>
   </Link>
   <Link  to="/cbj_excel_daybook/"> 
@@ -101,11 +95,10 @@ if(dashboardType === 'tran'){
 
   </div>
    </div>
-  {/* // } */}
  
 </div>
   ) 
 }
 }
 
-export default Home
+export default Home;
