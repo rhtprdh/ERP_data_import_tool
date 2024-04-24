@@ -20,7 +20,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 export default function GlobalTable({columns, rows=[], navAddButtonLink,deleteAllButton, editValue, deleteUrl}) {
   const navigate = useNavigate();
   const handleEdit = (id) => {
-    navigate(navAddButtonLink+"/:"+id)  }
+    navigate(navAddButtonLink+"/:"+id);  }
   const[delId, setDelId] = useState(''); 
   const [dataType, setDataType] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -98,7 +98,7 @@ const handleDelete = (id) => {
       const order = sortOrder === 'asc' ? 1 : -1;
       return a[sortedField] > b[sortedField] ? order : -order;
     });
-  };
+  }
   const filteredData = () => {
     if (!searchTerm) {
       return sortedData();
