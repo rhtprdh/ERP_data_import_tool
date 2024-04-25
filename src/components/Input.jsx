@@ -7,10 +7,10 @@ const Input = React.forwardRef( function Input({
     ...props
 
 }, ref) {
-    const id = useId()
+    const id = useId();
     let width =null;
     if(label){
-      width="w-80"
+      width="w-80";
     }
   return (
     <div className="w-full flex mt-2 mb-1">

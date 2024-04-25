@@ -68,7 +68,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
   const handleSort = (field) => {
     setSortedField(field);
     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-  };
+  }
 
   const sortedData = () => {
     if (!sortedField) {
