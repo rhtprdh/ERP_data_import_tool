@@ -9,44 +9,44 @@ import axios from 'axios';
 
 function CbjExcel() {
   const [file, setFile] = useState(null);
-  const [processedData, setProcessedData] = useState(null);
-  const [serieses, setSerieses] = useState([
-{bankid:'A1'  , series:'WA'  , postCode:'AI201'    ,beheading:'AXIS BANK - 920020069484570'},
-{bankid:'A1'  , series:'RA'  , postCode:'AI201'    ,beheading:'AXIS BANK - 920020069484570'},
-{bankid:'F1'  , series:'WF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
-{bankid:'F1'  , series:'RF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
-{bankid:'G1'  , series:'RG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
-{bankid:'G1'  , series:'WG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
-{bankid:'D1'  , series:'WD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
-{bankid:'D1'  , series:'RD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
-{bankid:'C1'  , series:'WC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
-{bankid:'C1'  , series:'RC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
-{bankid:'B1'  , series:'WB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
-{bankid:'B1'  , series:'RB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
-{bankid:'E1'  , series:'WE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
-{bankid:'E1'  , series:'RE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
+//   const [processedData, setProcessedData] = useState(null);
+//   const [serieses, setSerieses] = useState([
+// {bankid:'A1'  , series:'WA'  , postCode:'AI201'    ,beheading:'AXIS BANK - 920020069484570'},
+// {bankid:'A1'  , series:'RA'  , postCode:'AI201'    ,beheading:'AXIS BANK - 920020069484570'},
+// {bankid:'F1'  , series:'WF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
+// {bankid:'F1'  , series:'RF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
+// {bankid:'G1'  , series:'RG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
+// {bankid:'G1'  , series:'WG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
+// {bankid:'D1'  , series:'WD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
+// {bankid:'D1'  , series:'RD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
+// {bankid:'C1'  , series:'WC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
+// {bankid:'C1'  , series:'RC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
+// {bankid:'B1'  , series:'WB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
+// {bankid:'B1'  , series:'RB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
+// {bankid:'E1'  , series:'WE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
+// {bankid:'E1'  , series:'RE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
 
-]);
-  const [vrseq, setVrseq] = useState(0);
-  const [tokenSeq, setTokenSeq] = useState(0);
-  const[tranType, setTranType]=useState('Receipt','Payment');
+// ]);
+  // const [vrseq, setVrseq] = useState(0);
+  // const [tokenSeq, setTokenSeq] = useState(0);
+  // const[tranType, setTranType]=useState('Receipt','Payment');
   const [name,setName] = useState("");
   const [selectedSeries, setSelectedSeries] = useState('');
-  const [entityCode, setentityCode] = useState('');
+  // const [entityCode, setentityCode] = useState('');
   const[div_code, setDiv_code] =useState('');
   const[div_name, setDiv_name] =useState('');
   const[entity_code, setEntity_code] =useState('');
   const[entity_name, setEntity_name] =useState('');
   const [seriesVrSeq, setSeriesVrSeq] = useState('');
   const [tokenVrSeq, setTokenVrSeq] = useState('');
-  const [vrSeqPhase, setVrSeqPhase] = useState([]);
+  // const [vrSeqPhase, setVrSeqPhase] = useState([]);
 
   const dispatch = useDispatch();
   const [isTableOpen, setIsTableOpen] = useState(false);
   const [slugValue, setSlugValue] = useState();
   const todos = useSelector(state => state.todos);
   let ikm =0;
-  let excelDownload = false
+  let excelDownload = false;
   
 
   const handleFileChange = (e) => {
@@ -267,51 +267,51 @@ function CbjExcel() {
               const year = String(date.getFullYear()).substring(2);
               
               if(month==10){
-                month ='O'
+                month ='O';
               }else if (month ==11){
-                month ='N'
+                month ='N';
               }else if(month ==12){
-                month='D'
+                month='D';
               }
               return `${year}${month}${day}`;
           };
         
         
-          const vrSeqDatafn =(vrData)=> {
-          if(vrSeqData.length ==0){
-            // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
-            vrSeqData.push({vrseq:vrData, lastvrno:1});
-            return (`${vrData}-1`)
-            }else{
-              for(let i=0; vrSeqData.length>i; i++){
-                // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
-                 if(vrSeqData[i].vrseq == vrData){
-                  // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
-                    vrSeqData[i].lastvrno++
-                    // console.log(vrSeqData[i]);
-                    // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
-                    return (`${vrData}-${vrSeqData[i].lastvrno}`)
-                }else if(vrSeqData[i].vrseq != vrData){
-                  // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
-                 vrSeqData.push({vrseq:vrData, lastvrno:1});
-                 // i++
-                  return (`${vrData}-1`);
-                }
+          // const vrSeqDatafn =(vrData)=> {
+          // if(vrSeqData.length ==0){
+          //   // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
+          //   vrSeqData.push({vrseq:vrData, lastvrno:1});
+          //   return (`${vrData}-1`)
+          //   }else{
+          //     for(let i=0; vrSeqData.length>i; i++){
+          //       // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
+          //        if(vrSeqData[i].vrseq == vrData){
+          //         // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
+          //           vrSeqData[i].lastvrno++
+          //           // console.log(vrSeqData[i]);
+          //           // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
+          //           return (`${vrData}-${vrSeqData[i].lastvrno}`)
+          //       }else if(vrSeqData[i].vrseq != vrData){
+          //         // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
+          //        vrSeqData.push({vrseq:vrData, lastvrno:1});
+          //        // i++
+          //         return (`${vrData}-1`);
+          //       }
                 
-              }
-            }
-          }
+          //     }
+          //   }
+          // }
           
 
            const vrSeqNumber=(postCode,date) =>{
             // console.log(`${postCode}  ${date}`);
             for (let i = 0; i < serieses.length; i++) {
               if(postCode == serieses[i].postCode){
-                    i++
+                    i++;
                   // vrSeqData.push(`${serieses[i-1].series}${date}-${i}`)
                   // console.log(vrSeqDatafn(`${serieses[i-1].series}${date}`))
                 
-                   return (`${serieses[i-1].series}${date}`)
+                   return (`${serieses[i-1].series}${date}`);
                 //  const vrno = `${serieses[i-1].series}${date}`
                 //   // return `${serieses[i-1].series}${date}-${i}`;
                 //   return vrno
@@ -322,11 +322,11 @@ function CbjExcel() {
           const bankId=(postCode) =>{
             for (let i = 0; i < serieses.length; i++) {
               if(postCode == serieses[i].postCode){
-                    i++
+                    i++;
                   // vrSeqData.push(`${serieses[i-1].series}${date}-${i}`)
                   // console.log(vrSeqDatafn(`${serieses[i-1].series}${date}`))
                 
-                   return (`${serieses[i-1].bankid}`)
+                   return (`${serieses[i-1].bankid}`);
                 //  const vrno = `${serieses[i-1].series}${date}`
                 //   // return `${serieses[i-1].series}${date}-${i}`;
                 //   return vrno
@@ -342,17 +342,17 @@ function CbjExcel() {
           let lastIsDebit = false;
           let date = null;
           let TokenDate =null;
-          let bankDate=null;
-          let vrnoPhaseTwo=null;
+          // let bankDate=null;
+          // let vrnoPhaseTwo=null;
 
             jsonData.forEach(async (row, index) => {
               
               if (row.Date) {
                 lastValidDate = row.Date;
                  }
-              let vrno=''
-              const vrnoDate =formatDate(row.Date ? row.Date : lastValidDate )
-              const sqdataEx={vrSeq: vrSeqNumber(row.ACC_CODE,vrnoDate ), lastVrno:100}
+              let vrno='';
+              const vrnoDate =formatDate(row.Date ? row.Date : lastValidDate );
+              const sqdataEx={vrSeq: vrSeqNumber(row.ACC_CODE,vrnoDate ), lastVrno:100};
 
               const tcode = row.Debit ? 'B' : 'T';
               const baseCode = row.Debit ? '' : 'B';
@@ -375,7 +375,7 @@ function CbjExcel() {
                 slno =1;
                 lastIsDebit = false;
                 TokenDate =null;
-                revAccCode.push(row.ACC_CODE)
+                revAccCode.push(row.ACC_CODE);
             }
             
             if(row.Date){
@@ -506,11 +506,11 @@ function CbjExcel() {
                       // newVrnoArray.push(item, item);
                       const originalString = item.vrno;
                       const trimmedString = {vrno: `${originalString.slice(0, 4)}A`};
-                      newTokenVrnoArray.push(trimmedString)
+                      newTokenVrnoArray.push(trimmedString);
 
                     });
                   
-                    let lastvrno=''
+                    let lastvrno='';
                     // console.log(newTokenVrnoArray);
                     if(newTokenVrnoArray.length !=0){
                     for (let i = 0; i < newTokenVrnoArray.length; i++) {
@@ -522,7 +522,7 @@ function CbjExcel() {
                           // console.log(data.data.updatedVrno);
                           lastvrno = data.data;
                           // console.log(data.data);
-                          newTokenVrnoArrayUpdated.push({'vrno':`${newTokenVrnoArray[i].vrno}`, 'lastVrno': parseInt(lastvrno)})
+                          newTokenVrnoArrayUpdated.push({'vrno':`${newTokenVrnoArray[i].vrno}`, 'lastVrno': parseInt(lastvrno)});
                           // console.log(vrnoUpdated);
                         } catch (error) {
                           console.log(error);
@@ -538,30 +538,30 @@ function CbjExcel() {
                       // console.log(data.data.updatedVrno);
                       lastvrno = data.data;
                       // console.log(data.data);
-                      newTokenVrnoArrayUpdated.push({'vrno':`${newTokenVrnoArray[i].vrno}`, 'lastVrno': parseInt(lastvrno)})
+                      newTokenVrnoArrayUpdated.push({'vrno':`${newTokenVrnoArray[i].vrno}`, 'lastVrno': parseInt(lastvrno)});
                       // console.log(vrnoUpdated);
                     } catch (error) {
                       console.log(error);
                   }
                 }else{
                   // console.log(`last vr no :- ${newTokenVrnoArrayUpdated[i-1].lastVrno}`);
-                  let vr = parseInt(newTokenVrnoArrayUpdated[i-1].lastVrno)+1
+                  let vr = parseInt(newTokenVrnoArrayUpdated[i-1].lastVrno)+1;
                   // console.log(`vr number :- ${vr}`);
-                  newTokenVrnoArrayUpdated.push({'vrno':`${newTokenVrnoArray[i].vrno}`, 'lastVrno':vr})
+                  newTokenVrnoArrayUpdated.push({'vrno':`${newTokenVrnoArray[i].vrno}`, 'lastVrno':vr});
                 }
                 }
               }
               }
 
               newTokenVrnoArrayUpdated.forEach(item => {
-                let tokenPhaseTwo = (`${item.vrno}-${item.lastVrno}`)
+                let tokenPhaseTwo = (`${item.vrno}-${item.lastVrno}`);
                 newTokenVrnoArrayUpdatedPhaseTwo.push({vrno: `${tokenPhaseTwo}`});
               });
             
                 // console.log(newTokenVrnoArrayUpdated);
-                const bankIdData=bankId(row.ACC_CODE)
+                const bankIdData=bankId(row.ACC_CODE);
                 if(bankIdData != undefined){
-                  bankIdAcc.push(bankIdData)
+                  bankIdAcc.push(bankIdData);
                 }
               
 
@@ -586,14 +586,14 @@ function CbjExcel() {
                       // newTokenVrnoArrayUpdatedPhaseTwo.push({vrno: `$${item.vrno}-${item.lastVrno}`});
                       newTokenVrnoArrayUpdatedPhaseThree.push(newTokenVrnoArrayUpdatedPhaseTwo[inf]);
                       bankIdArrayUpdatedPhaseTwo.push(bankIdAcc[inf]);
-                      revAccCodePhaseTwo.push(revAccCode[inf])
+                      revAccCodePhaseTwo.push(revAccCode[inf]);
                       revAccCount +=1;
                     } else if(item.cramt){
                       newVrnoArray.push(vrnoUpdated[inf]);
                       // newTokenVrnoArrayUpdatedPhaseTwo.push({vrno: ''});
                       newTokenVrnoArrayUpdatedPhaseThree.push({vrno: ''});
                       bankIdArrayUpdatedPhaseTwo.push(' ');
-                      revAccCodePhaseTwo.push(' ')
+                      revAccCodePhaseTwo.push(' ');
                       inf +=1;
                       // console.log(inf);
                       revAccCount =0;
@@ -776,43 +776,43 @@ const handleSeriesChange = (event) => {
 };
 const handleInputClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('division')
+  setSlugValue('division');
   setIsTableOpen(true);
 };
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('entity')
+  setSlugValue('entity');
   setIsTableOpen(true);
 };
-const handleBatchnoClick =()=>{
-  setSlugValue('qrtag')
-  setIsTableOpen(true);
-}
+// const handleBatchnoClick =()=>{
+//   setSlugValue('qrtag')
+//   setIsTableOpen(true);
+// }
 
 const handleTable=(e)=>{
   // console.log('click for false :', e)
   // setSlugValue('')
-  setIsTableOpen(false)
+  setIsTableOpen(false);
 }
 const handleChange = (selectedOption) => {
   // console.log('Selected option:', selectedOption);
-  setDivision(selectedOption.value)
+  setDivision(selectedOption.value);
 };
 
 
 useEffect(()=>{
   if(slugValue ==='division'){
     todos.map((todo)=>{
-      setDiv_code(todo.text.id)
-      setDiv_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setDiv_code(todo.text.id);
+      setDiv_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
-      setEntity_code(todo.text.id)
-      setEntity_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setEntity_code(todo.text.id);
+      setEntity_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   }
 },[todos])

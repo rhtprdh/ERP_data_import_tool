@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Order() {
   let headVrSeq=0;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const[tranType, setTranType]=useState('');
   const[gstType, setGstType]=useState('');
@@ -25,53 +25,53 @@ function Order() {
   const[addon_name, setAddon_name] =useState(''); 
   const[addonData, setAddonData] = useState([]);
   
-  const[AFCODE2, setAFCODE2] = useState(null);
-  const[AFCODE3, setAFCODE3] = useState(null);
-  const[AFCODE4, setAFCODE4] = useState(null);
-  const[AFCODE5, setAFCODE5] = useState(null);
-  const[AFCODE6, setAFCODE6] = useState(null);
-  const[AFCODE7, setAFCODE7] = useState(null);
-  const[AFCODE8, setAFCODE8] = useState(null);
-  const[AFCODE9, setAFCODE9] = useState(null);
-  const[AFCODE10, setAFCODE10] = useState(null);
-  const[AFCODE11, setAFCODE11] = useState(null);
-  const[AFCODE12, setAFCODE12] = useState(null);
-  const[AFCODE13, setAFCODE13] = useState(null);
-  const[AFCODE14, setAFCODE14] = useState(null);
-  const[AFCODE15, setAFCODE15] = useState(null);
+//   const[AFCODE2, setAFCODE2] = useState(null);
+//   const[AFCODE3, setAFCODE3] = useState(null);
+//   const[AFCODE4, setAFCODE4] = useState(null);
+//   const[AFCODE5, setAFCODE5] = useState(null);
+//   const[AFCODE6, setAFCODE6] = useState(null);
+//   const[AFCODE7, setAFCODE7] = useState(null);
+//   const[AFCODE8, setAFCODE8] = useState(null);
+//   const[AFCODE9, setAFCODE9] = useState(null);
+//   const[AFCODE10, setAFCODE10] = useState(null);
+//   const[AFCODE11, setAFCODE11] = useState(null);
+//   const[AFCODE12, setAFCODE12] = useState(null);
+//   const[AFCODE13, setAFCODE13] = useState(null);
+//   const[AFCODE14, setAFCODE14] = useState(null);
+//   const[AFCODE15, setAFCODE15] = useState(null);
 
-  const[AFRATEI2, setAFRATEI2] = useState(null);
-const[AFRATEI3, setAFRATEI3] = useState(null);
-const[AFRATEI4, setAFRATEI4] = useState(null);
-const[AFRATEI5, setAFRATEI5] = useState(null);
-const[AFRATEI6, setAFRATEI6] = useState(null);
-const[AFRATEI7, setAFRATEI7] = useState(null);
-const[AFRATEI8, setAFRATEI8] = useState(null);
-const[AFRATEI9, setAFRATEI9] = useState(null);
-const[AFRATEI10, setAFRATEI10] = useState(null);
-const[AFRATEI11, setAFRATEI11] = useState(null);
-const[AFRATEI12, setAFRATEI12] = useState(null);
-const[AFRATEI13, setAFRATEI13] = useState(null);
-const[AFRATEI14, setAFRATEI14] = useState(null);
-const[AFRATEI15, setAFRATEI15] = useState(null);
+//   const[AFRATEI2, setAFRATEI2] = useState(null);
+// const[AFRATEI3, setAFRATEI3] = useState(null);
+// const[AFRATEI4, setAFRATEI4] = useState(null);
+// const[AFRATEI5, setAFRATEI5] = useState(null);
+// const[AFRATEI6, setAFRATEI6] = useState(null);
+// const[AFRATEI7, setAFRATEI7] = useState(null);
+// const[AFRATEI8, setAFRATEI8] = useState(null);
+// const[AFRATEI9, setAFRATEI9] = useState(null);
+// const[AFRATEI10, setAFRATEI10] = useState(null);
+// const[AFRATEI11, setAFRATEI11] = useState(null);
+// const[AFRATEI12, setAFRATEI12] = useState(null);
+// const[AFRATEI13, setAFRATEI13] = useState(null);
+// const[AFRATEI14, setAFRATEI14] = useState(null);
+// const[AFRATEI15, setAFRATEI15] = useState(null);
 
-const[AFLOGIC2, setAFLOGIC2] = useState(null);
-const[AFLOGIC3, setAFLOGIC3] = useState(null);
-const[AFLOGIC4, setAFLOGIC4] = useState(null);
-const[AFLOGIC5, setAFLOGIC5] = useState(null);
-const[AFLOGIC6, setAFLOGIC6] = useState(null);
-const[AFLOGIC7, setAFLOGIC7] = useState(null);
-const[AFLOGIC8, setAFLOGIC8] = useState(null);
-const[AFLOGIC9, setAFLOGIC9] = useState(null);
-const[AFLOGIC10, setAFLOGIC10] = useState(null);
-const[AFLOGIC11, setAFLOGIC11] = useState(null);
-const[AFLOGIC12, setAFLOGIC12] = useState(null);
-const[AFLOGIC13, setAFLOGIC13] = useState(null);
-const[AFLOGIC14, setAFLOGIC14] = useState(null);
-const[AFLOGIC15, setAFLOGIC15] = useState(null);
-const[AFLOGIC16, setAFLOGIC16] = useState(null);
-const[AFLOGIC17, setAFLOGIC17] = useState(null);
-const[AFLOGIC18, setAFLOGIC18] = useState(null);
+// const[AFLOGIC2, setAFLOGIC2] = useState(null);
+// const[AFLOGIC3, setAFLOGIC3] = useState(null);
+// const[AFLOGIC4, setAFLOGIC4] = useState(null);
+// const[AFLOGIC5, setAFLOGIC5] = useState(null);
+// const[AFLOGIC6, setAFLOGIC6] = useState(null);
+// const[AFLOGIC7, setAFLOGIC7] = useState(null);
+// const[AFLOGIC8, setAFLOGIC8] = useState(null);
+// const[AFLOGIC9, setAFLOGIC9] = useState(null);
+// const[AFLOGIC10, setAFLOGIC10] = useState(null);
+// const[AFLOGIC11, setAFLOGIC11] = useState(null);
+// const[AFLOGIC12, setAFLOGIC12] = useState(null);
+// const[AFLOGIC13, setAFLOGIC13] = useState(null);
+// const[AFLOGIC14, setAFLOGIC14] = useState(null);
+// const[AFLOGIC15, setAFLOGIC15] = useState(null);
+// const[AFLOGIC16, setAFLOGIC16] = useState(null);
+// const[AFLOGIC17, setAFLOGIC17] = useState(null);
+// const[AFLOGIC18, setAFLOGIC18] = useState(null);
 
 
 
@@ -118,7 +118,7 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
         });
         csvFormateData.push({
           
-        })
+        });
         const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
     const newWorkbooka = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(newWorkbooka, newWorksheeta, 'Sheet1');
@@ -178,9 +178,9 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
         jsonData.push(row);
     });
 
-        let jsonLength = jsonData.length;
+        // let jsonLength = jsonData.length;
 
-        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        // const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
             const order_head = [];
             const order_body = [];
@@ -201,11 +201,11 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
              }
              
               if(month==10){
-                month ='O'
+                month ='O';
               }else if (month ==11){
-                month ='N'
+                month ='N';
               }else if(month ==12){
-                month='D'
+                month='D';
               }
               if(seriesType){
               if(seriesType ==='D'){
@@ -221,7 +221,7 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
           
 
            const vrSeqNumber=(postCode,date) =>{
-          return (`${series_code}${date}`)
+          return (`${series_code}${date}`);
           }
           const dateFormate =async(value) =>{
             // const milliseconds = (value - 1) * 24 * 60 * 60 * 1000;
@@ -240,19 +240,19 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
                 day: '2-digit',
                 year: 'numeric'
               });
-              return formattedDate
+              return formattedDate;
 
           }
 
           const vrnoNumber= async(acc_code,date) =>{
-                            const vrnoDate = formatDate(date)
-                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100}
+                            const vrnoDate = formatDate(date);
+                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100};
                             if(sqdataEx.vrSeq != undefined){
                                 try {
                                   const response = await fetch(`/api/vrseq/:${sqdataEx.vrSeq}`);
                                   const data = await response.json();
                                    const  vrno = data.data.updatedVrno;
-                                 return vrno
+                                 return vrno;
                                 } catch (error) {
                                   console.log(error);
                               }
@@ -264,7 +264,7 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
               const response = await fetch(`/api/stax/:${tran_gst_type}`);
               const data = await response.json();
                const  stax_code = data.data.stax_code;
-             return stax_code
+             return stax_code;
             } catch (error) {
               console.log(error);
           }
@@ -283,7 +283,7 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
           let gross_val =0;
           for (let k = index; k < jsonData.length; k++) {
             if(jsonData[k].Voucher_Number === vrno){
-              gross_val +=(jsonData[k].Quantity_Balance * jsonData[k].Rate_GST_exclusive)+  gst_basic_rate_qty(jsonData[k].Rate_GST_exclusive, jsonData[k].Quantity_Balance, jsonData[k].GST_Rate)
+              gross_val +=(jsonData[k].Quantity_Balance * jsonData[k].Rate_GST_exclusive)+  gst_basic_rate_qty(jsonData[k].Rate_GST_exclusive, jsonData[k].Quantity_Balance, jsonData[k].GST_Rate);
             
             }else if(jsonData[k].Voucher_Number !== vrno){
               k=jsonData.length; 
@@ -637,7 +637,7 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
                                     'AQTY2' : null,
                                     'TRAN_SEQ' : null,
                                     'OTHER_ITEM_CODE' : null,
-                                })
+                                });
                         }
                         
                     
@@ -763,7 +763,7 @@ const[AFLOGIC18, setAFLOGIC18] = useState(null);
             'AFACC_CODE17' : addonData.AFACC_CODE17,
             'AFACC_CODE18' : addonData.AFACC_CODE18,
 
-    })
+    });
  
     const newWorksheeta = XLSX.utils.json_to_sheet(order_head);
     const newWorkbooka = XLSX.utils.book_new();
@@ -811,62 +811,62 @@ const handleTranTypeChange = (event) => {
 };
 const handleInputClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('division')
+  setSlugValue('division');
   setIsTableOpen(true);
 };
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('entity')
+  setSlugValue('entity');
   setIsTableOpen(true);
 };
 const handleSeriesClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('series' )
+  setSlugValue('series' );
   setIsTableOpen(true);
 };
 const handleAddonClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('addon' )
+  setSlugValue('addon' );
   setIsTableOpen(true);
 };
 const handleBatchnoClick =()=>{
-  setSlugValue('qrtag')
+  setSlugValue('qrtag');
   setIsTableOpen(true);
 }
 
 const handleTable=(e)=>{
-  setIsTableOpen(false)
+  setIsTableOpen(false);
 }
 const handleChange = (selectedOption) => {
-  setDivision(selectedOption.value)
+  setDivision(selectedOption.value);
 };
 
 
 useEffect(()=>{
   if(slugValue ==='division'){
     todos.map((todo)=>{
-      setDiv_code(todo.text.id)
-      setDiv_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setDiv_code(todo.text.id);
+      setDiv_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
-      setEntity_code(todo.text.id)
-      setEntity_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setEntity_code(todo.text.id);
+      setEntity_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   }  else if(slugValue ==='series'){
     todos.map((todo)=>{
-      setSeries_code(todo.text.id)
-      setSeries_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setSeries_code(todo.text.id);
+      setSeries_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     });
   } else if(slugValue ==='addon'){
     todos.map((todo)=>{
-      setAddon_code(todo.text.id)
-      setAddon_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setAddon_code(todo.text.id);
+      setAddon_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     });
   }
 
@@ -881,7 +881,7 @@ useEffect( () =>{
         setSeriesType(response.data.data.series_type);  
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       })
     }else if(entity_code){
      await axios.get(`/api/entity/:${entity_code}`)
@@ -891,7 +891,7 @@ useEffect( () =>{
         console.log(response.data.data.state_code);
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       })
     }else if(addon_code){
       await axios.get(`/api/addon/:${addon_code}`)
@@ -951,13 +951,13 @@ useEffect( () =>{
         // setSeriesType(response.data.data.gst_code); 
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       })
     };
   };
   fetchData();
   
-},[series_code, entity_code, addon_code])
+},[series_code, entity_code, addon_code]);
 
 
   const filters = {

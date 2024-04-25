@@ -9,45 +9,45 @@ import axios from 'axios';
 
 function CbjExcelDaybook() {
   const [file, setFile] = useState(null);
-  const [processedData, setProcessedData] = useState(null);
-  const [serieses, setSerieses] = useState([
-{bankid:'A1'  , series:'WA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
-{bankid:'A1'  , series:'RA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
-{bankid:'F1'  , series:'WF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
-{bankid:'F1'  , series:'RF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
-{bankid:'G1'  , series:'RG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
-{bankid:'G1'  , series:'WG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
-{bankid:'D1'  , series:'WD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
-{bankid:'D1'  , series:'RD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
-{bankid:'C1'  , series:'WC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
-{bankid:'C1'  , series:'RC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
-{bankid:'B1'  , series:'WB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
-{bankid:'B1'  , series:'RB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
-{bankid:'E1'  , series:'WE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
-{bankid:'E1'  , series:'RE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
+//   const [processedData, setProcessedData] = useState(null);
+//   const [serieses, setSerieses] = useState([
+// {bankid:'A1'  , series:'WA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
+// {bankid:'A1'  , series:'RA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
+// {bankid:'F1'  , series:'WF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
+// {bankid:'F1'  , series:'RF'  , postCode:'AI206'    ,beheading:'CANARA BANK - 0413201028518'},
+// {bankid:'G1'  , series:'RG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
+// {bankid:'G1'  , series:'WG'  , postCode:'AI207'    ,beheading:'DDCC BANK - 710893122'},
+// {bankid:'D1'  , series:'WD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
+// {bankid:'D1'  , series:'RD'  , postCode:'AI204'    ,beheading:'ICICI BANK - 164805000174'},
+// {bankid:'C1'  , series:'WC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
+// {bankid:'C1'  , series:'RC'  , postCode:'AI203'    ,beheading:'IDFC FIRST BANK - 10052188306'},
+// {bankid:'B1'  , series:'WB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
+// {bankid:'B1'  , series:'RB'  , postCode:'AI202'    ,beheading:'KOTAK MAHINDRA BANK - 2347110480'},
+// {bankid:'E1'  , series:'WE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
+// {bankid:'E1'  , series:'RE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
 
-]);
-  const [vrseq, setVrseq] = useState(0);
-  const [tokenSeq, setTokenSeq] = useState(0);
+// ]);
+//   const [vrseq, setVrseq] = useState(0);
+//   const [tokenSeq, setTokenSeq] = useState(0);
   const[tranType, setTranType]=useState('');
-  const [name,setName] = useState("");
-  const [selectedSeries, setSelectedSeries] = useState('');
-  const [entityCode, setentityCode] = useState('');
+  // const [name,setName] = useState("");
+  // const [selectedSeries, setSelectedSeries] = useState('');
+  // const [entityCode, setentityCode] = useState('');
   const[div_code, setDiv_code] =useState('');
   const[div_name, setDiv_name] =useState('');
   const[entity_code, setEntity_code] =useState('');
   const[entity_name, setEntity_name] =useState('');
-  const [seriesVrSeq, setSeriesVrSeq] = useState('');
-  const [tokenVrSeq, setTokenVrSeq] = useState('');
-  const [vrSeqPhase, setVrSeqPhase] = useState([]);
+  // const [seriesVrSeq, setSeriesVrSeq] = useState('');
+  // const [tokenVrSeq, setTokenVrSeq] = useState('');
+  // const [vrSeqPhase, setVrSeqPhase] = useState([]);
 
   const dispatch = useDispatch();
   const [isTableOpen, setIsTableOpen] = useState(false);
   const [isFormTrue, setIsFormTrue] = useState(false);
   const [slugValue, setSlugValue] = useState();
   const todos = useSelector(state => state.todos);
-  let ikm =0;
-  let excelDownload = false;
+  // let ikm =0;
+  // let excelDownload = false;
   
 
   const handleFileChange = (e) => {
@@ -131,12 +131,12 @@ function CbjExcelDaybook() {
             // console.log(acc_code_clm);
 
             const newData = [];
-            let newDataPhaseTwo = [];
+            // let newDataPhaseTwo = [];
             const vrSeqData=[];
-            let vrnoUpdated= [];
-            let vrDateUpdated=[];
-            let revAccCode=[];
-            let bankIdAcc=[];
+            // let vrnoUpdated= [];
+            // let vrDateUpdated=[];
+            // let revAccCode=[];
+            // let bankIdAcc=[];
             const formatDate = (excelDate) => {
               // const date = new Date(excelDate);
               const serialDate = parseInt(excelDate);
@@ -154,40 +154,40 @@ function CbjExcelDaybook() {
              }
              
               if(month==10){
-                month ='O'
+                month ='O';
               }else if (month ==11){
-                month ='N'
+                month ='N';
               }else if(month ==12){
-                month='D'
+                month='D';
               }
               return `${year}${month}${day}`;
           };
         
         
-          const vrSeqDatafn =(vrData)=> {
-          if(vrSeqData.length ==0){
-            // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
-            vrSeqData.push({vrseq:vrData, lastvrno:1});
-            return (`${vrData}-1`)
-            }else{
-              for(let i=0; vrSeqData.length>i; i++){
-                // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
-                 if(vrSeqData[i].vrseq == vrData){
-                  // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
-                    vrSeqData[i].lastvrno++
-                    // console.log(vrSeqData[i]);
-                    // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
-                    return (`${vrData}-${vrSeqData[i].lastvrno}`)
-                }else if(vrSeqData[i].vrseq != vrData){
-                  // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
-                 vrSeqData.push({vrseq:vrData, lastvrno:1});
-                 // i++
-                  return (`${vrData}-1`);
-                }
+          // const vrSeqDatafn =(vrData)=> {
+          // if(vrSeqData.length ==0){
+          //   // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
+          //   vrSeqData.push({vrseq:vrData, lastvrno:1});
+          //   return (`${vrData}-1`)
+          //   }else{
+          //     for(let i=0; vrSeqData.length>i; i++){
+          //       // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
+          //        if(vrSeqData[i].vrseq == vrData){
+          //         // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
+          //           vrSeqData[i].lastvrno++
+          //           // console.log(vrSeqData[i]);
+          //           // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
+          //           return (`${vrData}-${vrSeqData[i].lastvrno}`)
+          //       }else if(vrSeqData[i].vrseq != vrData){
+          //         // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
+          //        vrSeqData.push({vrseq:vrData, lastvrno:1});
+          //        // i++
+          //         return (`${vrData}-1`);
+          //       }
                 
-              }
-            }
-          }
+          //     }
+          //   }
+          // }
           
 
            const vrSeqNumber=(postCode,date) =>{
@@ -195,19 +195,19 @@ function CbjExcelDaybook() {
            
             for (let i = 0; i < serieses.length; i++) {
               if(postCode == serieses[i].postCode){
-                    i++
+                    i++;
                   // vrSeqData.push(`${serieses[i-1].series}${date}-${i}`)
                   // console.log(vrSeqDatafn(`${serieses[i-1].series}${date}`))
                   // console.log(`trantype:- ${tranType}`);
                   if(tranType ==='Payment'){
-                    return (`${serieses[i-1].series}${date}`)
-                    serieses[i-1].replace(/^./, 'R');
+                    return (`${serieses[i-1].series}${date}`);
+                    // serieses[i-1].replace(/^./, 'R');
                   } else if(tranType ==='Receipt'){
                     let vr = serieses[i-1].series;
-                    let vr2 = vr.replace(/^./, 'R')
+                    let vr2 = vr.replace(/^./, 'R');
                     // console.log(vr2);
                     // serieses[i-1].replace(/^./, 'R');
-                    return (`${vr2}${date}`)
+                    return (`${vr2}${date}`);
                   }
 
                   // return (`${serieses[i-1].series}${date}`)
@@ -221,11 +221,11 @@ function CbjExcelDaybook() {
           }
 
           const vrnoNumber= async(acc_code,date) =>{
-                            const vrnoDate = formatDate(date)
+                            const vrnoDate = formatDate(date);
                             // console.log(vrnoDate);
                             // console.log(`${acc_code}`);
                             // console.log(`${ vrSeqNumber(acc_code, vrnoDate)}`);
-                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100}
+                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100};
 
                             // console.log(sqdataEx);
                             if(sqdataEx.vrSeq != undefined){
@@ -234,7 +234,7 @@ function CbjExcelDaybook() {
                                   const data = await response.json();
                                   // console.log(data.data.updatedVrno);
                                    const  vrno = data.data.updatedVrno;
-                                 return vrno
+                                 return vrno;
                                 //   vrnoUpdated = vrno;
                                  
                                 //   console.log(vrnoUpdated);
@@ -250,7 +250,7 @@ function CbjExcelDaybook() {
                 const data = await response.json();
                 // console.log(data.data.updatedVrno);
                  const  tokenVrno = data.data.updatedVrno;
-               return tokenVrno
+               return tokenVrno;
               //   vrnoUpdated = vrno;
                
               //   console.log(vrnoUpdated);
@@ -301,11 +301,11 @@ function CbjExcelDaybook() {
           const bankId= (postCode) =>{
             for (let i = 0; i < serieses.length; i++) {
               if(postCode == serieses[i].postCode){
-                    i++
+                    i++;
                   // vrSeqData.push(`${serieses[i-1].series}${date}-${i}`)
                   // console.log(vrSeqDatafn(`${serieses[i-1].series}${date}`))
                 
-                   return (`${serieses[i-1].bankid}`)
+                   return (`${serieses[i-1].bankid}`);
                 //  const vrno = `${serieses[i-1].series}${date}`
                 //   // return `${serieses[i-1].series}${date}-${i}`;
                 //   return vrno
@@ -316,13 +316,13 @@ function CbjExcelDaybook() {
          
          
 
-          let lastValidDate = '';
-          let slno = 1;
-          let lastIsDebit = false;
-          let date = null;
-          let TokenDate =null;
-          let bankDate=null;
-          let vrnoPhaseTwo=null;
+          // let lastValidDate = '';
+          // let slno = 1;
+          // let lastIsDebit = false;
+          // let date = null;
+          // let TokenDate =null;
+          // let bankDate=null;
+          // let vrnoPhaseTwo=null;
 
             // jsonData.forEach(async (row, index) => {
             
@@ -337,7 +337,7 @@ function CbjExcelDaybook() {
                     console.log(row.Gross_Total);
                     if(row.acc_code === PostCodeValue){
                       const vrno = await vrnoNumber(PostCodeValue,row.Date);
-                      const tokenNo = await tokenNumber(vrno.slice(0, 4))
+                      const tokenNo = await tokenNumber(vrno.slice(0, 4));
                       // let acc_code_value_count = 0;
                       let slno =2
                       if(row.Voucher_Type ==='Payment'){
@@ -770,10 +770,10 @@ function CbjExcelDaybook() {
 
                     }else if (row.acc_code !== PostCodeValue){
                         // console.log(`vrno- ${await vrnoNumber(PostCodeValue,row.Date)}, postcodedata- ${PostCodeValue}, date- ${row.Date}`);
-                        let vrno = await vrnoNumber(PostCodeValue,row.Date) 
+                        let vrno = await vrnoNumber(PostCodeValue,row.Date);
                         // console.log(vrno);
-                        const tokenNo = await tokenNumber(vrno.slice(0, 4))
-                        let slno =2
+                        const tokenNo = await tokenNumber(vrno.slice(0, 4));
+                        let slno =2;
                         if(row.Voucher_Type ==='Payment'){
 
                      

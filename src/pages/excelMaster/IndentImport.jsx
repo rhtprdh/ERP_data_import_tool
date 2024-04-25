@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 function IndentImport() {
   let headVrSeq=0;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const[tranType, setTranType]=useState('');
   const[seriesType, setSeriesType]=useState('');
@@ -55,7 +55,7 @@ function IndentImport() {
         });
         csvFormateData.push({
           
-        })
+        });
         const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
     const newWorkbooka = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(newWorkbooka, newWorksheeta, 'Sheet1');
@@ -116,9 +116,9 @@ function IndentImport() {
     });
 
         // console.log(jsonData[1].Gross_Total);
-        let jsonLength = jsonData.length;
+        // let jsonLength = jsonData.length;
 
-        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        // const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
         // const cell = worksheet[XLSX.utils.encode_cell({ r: 0, c: 39 })]; // OLD C: 23
         // const PostCodeValue = cell ? cell.v : undefined;
@@ -175,11 +175,11 @@ function IndentImport() {
              }
              
               if(month==10){
-                month ='O'
+                month ='O';
               }else if (month ==11){
-                month ='N'
+                month ='N';
               }else if(month ==12){
-                month='D'
+                month='D';
               }
               if(seriesType){
               // console.log(`SERIES TYPE:- ${seriesType}`);
@@ -195,7 +195,7 @@ function IndentImport() {
           const vrSeqDatafn =(vrData)=> {
           if(vrSeqData.length ==0){
             vrSeqData.push({vrseq:vrData, lastvrno:1});
-            return (`${vrData}-1`)
+            return (`${vrData}-1`);
             }else{
               for(let i=0; vrSeqData.length>i; i++){
                  if(vrSeqData[i].vrseq == vrData){
@@ -212,7 +212,7 @@ function IndentImport() {
           
 
            const vrSeqNumber=(postCode,date) =>{
-          return (`${series_code}${date}`)
+          return (`${series_code}${date}`);
           }
           const dateFormate =async(value) =>{
             // const milliseconds = (value - 1) * 24 * 60 * 60 * 1000;
@@ -231,47 +231,47 @@ function IndentImport() {
                 day: '2-digit',
                 year: 'numeric'
               });
-              return formattedDate
+              return formattedDate;
 
           }
 
           const vrnoNumber= async(acc_code,date) =>{
-                            const vrnoDate = formatDate(date)
-                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100}
+                            const vrnoDate = formatDate(date);
+                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100};
                             if(sqdataEx.vrSeq != undefined){
                                 try {
                                   const response = await fetch(`/api/vrseq/:${sqdataEx.vrSeq}`);
                                   const data = await response.json();
                                    const  vrno = data.data.updatedVrno;
-                                 return vrno
+                                 return vrno;
                                 } catch (error) {
                                   console.log(error);
                               }
                               }
           }
 
-          const tokenNumber = async(trimVrno) =>{
-            try {
-                const response = await fetch(`/api/vrseq/:${trimVrno}`);
-                const data = await response.json();
-                 const  tokenVrno = data.data.updatedVrno;
-               return tokenVrno
-              } catch (error) {
-                console.log(error);
-            }
-          }
+//           const tokenNumber = async(trimVrno) =>{
+//             try {
+//                 const response = await fetch(`/api/vrseq/:${trimVrno}`);
+//                 const data = await response.json();
+//                  const  tokenVrno = data.data.updatedVrno;
+//                return tokenVrno;
+//               } catch (error) {
+//                 console.log(error);
+//             }
+//           }
 
-          const bankId= async() =>{
-                try {
-                  const response = await fetch(`/api/series/:${series_code}`);
-                  // const response =  await axios.get(`/api/series/:${series_code}`);
-                  const data = await response.json();
-                   const  bank = data.data.bankId;
-                 return bank
-                } catch (error) {
-                  console.log(error);
-              }
-}
+//           const bankId= async() =>{
+//                 try {
+//                   const response = await fetch(`/api/series/:${series_code}`);
+//                   // const response =  await axios.get(`/api/series/:${series_code}`);
+//                   const data = await response.json();
+//                    const  bank = data.data.bankId;
+//                  return bank
+//                 } catch (error) {
+//                   console.log(error);
+//               }
+// }
          
           
           setTotal_rows(jsonData.length);
@@ -372,7 +372,7 @@ function IndentImport() {
                                     'FC_RATE' : 1,
                                     'TRAN_SEQ' : null,
 
-                                })
+                                });
                         }
                         
                     
@@ -422,51 +422,51 @@ const handleTranTypeChange = (event) => {
 };
 const handleInputClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('division')
+  setSlugValue('division');
   setIsTableOpen(true);
 };
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('entity')
+  setSlugValue('entity');
   setIsTableOpen(true);
 };
 const handleSeriesClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('series' )
+  setSlugValue('series' );
   setIsTableOpen(true);
 };
-const handleBatchnoClick =()=>{
-  setSlugValue('qrtag')
-  setIsTableOpen(true);
-}
+// const handleBatchnoClick =()=>{
+//   setSlugValue('qrtag')
+//   setIsTableOpen(true);
+// }
 
 const handleTable=(e)=>{
-  setIsTableOpen(false)
+  setIsTableOpen(false);
 }
 const handleChange = (selectedOption) => {
-  setDivision(selectedOption.value)
+  setDivision(selectedOption.value);
 };
 
 
 useEffect(()=>{
   if(slugValue ==='division'){
     todos.map((todo)=>{
-      setDiv_code(todo.text.id)
-      setDiv_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setDiv_code(todo.text.id);
+      setDiv_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
-      setEntity_code(todo.text.id)
-      setEntity_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setEntity_code(todo.text.id);
+      setEntity_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   }  else if(slugValue ==='series'){
     todos.map((todo)=>{
-      setSeries_code(todo.text.id)
-      setSeries_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setSeries_code(todo.text.id);
+      setSeries_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     });
   }
 },[todos])
@@ -479,10 +479,10 @@ useEffect(() =>{
       setSeriesType(response.data.data.series_type);  
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     })
   }
-},[series_code])
+},[series_code]);
 
 
   const filters = {

@@ -9,9 +9,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function CbjExcelDaybookDrCr() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
-  const [processedData, setProcessedData] = useState(null);
+  // const [processedData, setProcessedData] = useState(null);
 //   const [serieses, setSerieses] = useState([
 // {bankid:'A1'  , series:'WA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
 // {bankid:'A1'  , series:'RA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
@@ -29,22 +29,22 @@ function CbjExcelDaybookDrCr() {
 // {bankid:'E1'  , series:'RE'  , postCode:'AI205'    ,beheading:'STATE BANK OF INDIA - 38137378645'},
 
 // ]);
-  const [vrseq, setVrseq] = useState(0);
-  const [tokenSeq, setTokenSeq] = useState(0);
+  // const [vrseq, setVrseq] = useState(0);
+  // const [tokenSeq, setTokenSeq] = useState(0);
   const[tranType, setTranType]=useState('');
   const[seriesType, setSeriesType]=useState('');
-  const [name,setName] = useState("");
-  const [selectedSeries, setSelectedSeries] = useState('');
-  const [entityCode, setentityCode] = useState('');
+  // const [name,setName] = useState("");
+  // const [selectedSeries, setSelectedSeries] = useState('');
+  // const [entityCode, setentityCode] = useState('');
   const[div_code, setDiv_code] =useState('');
   const[div_name, setDiv_name] =useState('');
   const[entity_code, setEntity_code] =useState('');
   const[entity_name, setEntity_name] =useState('');
   const[series_code, setSeries_code] =useState('');
   const[series_name, setSeries_name] =useState('');
-  const [seriesVrSeq, setSeriesVrSeq] = useState('');
-  const [tokenVrSeq, setTokenVrSeq] = useState('');
-  const [vrSeqPhase, setVrSeqPhase] = useState([]);
+  // const [seriesVrSeq, setSeriesVrSeq] = useState('');
+  // const [tokenVrSeq, setTokenVrSeq] = useState('');
+  // const [vrSeqPhase, setVrSeqPhase] = useState([]);
   // const [bank_id, setBank_id] = useState('');
 
   const dispatch = useDispatch();
@@ -55,8 +55,8 @@ function CbjExcelDaybookDrCr() {
   const csvFormateData =[];
   const [row_process, setRow_process] = useState(0);
   const [total_rows, setTotal_rows] = useState(0);
-  let ikm =0;
-  let excelDownload = false;
+  // let ikm =0;
+  // let excelDownload = false;
   
 
   const handleFileChange = (e) => {
@@ -121,7 +121,7 @@ function CbjExcelDaybookDrCr() {
           'AAA16' : 'Consumables',
           'AAA17' : 'Output SGST @ 2.5%',
           
-        })
+        });
         const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
     const newWorkbooka = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(newWorkbooka, newWorksheeta, 'Sheet1');
@@ -235,12 +235,12 @@ function CbjExcelDaybookDrCr() {
             console.log(acc_code_clm);
 
             const newData = [];
-            let newDataPhaseTwo = [];
+            // let newDataPhaseTwo = [];
             const vrSeqData=[];
-            let vrnoUpdated= [];
-            let vrDateUpdated=[];
-            let revAccCode=[];
-            let bankIdAcc=[];
+            // let vrnoUpdated= [];
+            // let vrDateUpdated=[];
+            // let revAccCode=[];
+            // let bankIdAcc=[];
             const formatDate = (excelDate) => {
               // const date = new Date(excelDate);
               const serialDate = parseInt(excelDate);
@@ -258,11 +258,11 @@ function CbjExcelDaybookDrCr() {
              }
              
               if(month==10){
-                month ='O'
+                month ='O';
               }else if (month ==11){
-                month ='N'
+                month ='N';
               }else if(month ==12){
-                month='D'
+                month='D';
               }
               if(seriesType){
               console.log(`SERIES TYPE:- ${seriesType}`);
@@ -275,30 +275,30 @@ function CbjExcelDaybookDrCr() {
           };
         
         
-          const vrSeqDatafn =(vrData)=> {
-          if(vrSeqData.length ==0){
-            // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
-            vrSeqData.push({vrseq:vrData, lastvrno:1});
-            return (`${vrData}-1`)
-            }else{
-              for(let i=0; vrSeqData.length>i; i++){
-                // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
-                 if(vrSeqData[i].vrseq == vrData){
-                  // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
-                    vrSeqData[i].lastvrno++
-                    // console.log(vrSeqData[i]);
-                    // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
-                    return (`${vrData}-${vrSeqData[i].lastvrno}`)
-                }else if(vrSeqData[i].vrseq != vrData){
-                  // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
-                 vrSeqData.push({vrseq:vrData, lastvrno:1});
-                 // i++
-                  return (`${vrData}-1`);
-                }
+          // const vrSeqDatafn =(vrData)=> {
+          // if(vrSeqData.length ==0){
+          //   // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
+          //   vrSeqData.push({vrseq:vrData, lastvrno:1});
+          //   return (`${vrData}-1`)
+          //   }else{
+          //     for(let i=0; vrSeqData.length>i; i++){
+          //       // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
+          //        if(vrSeqData[i].vrseq == vrData){
+          //         // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
+          //           vrSeqData[i].lastvrno++
+          //           // console.log(vrSeqData[i]);
+          //           // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
+          //           return (`${vrData}-${vrSeqData[i].lastvrno}`)
+          //       }else if(vrSeqData[i].vrseq != vrData){
+          //         // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
+          //        vrSeqData.push({vrseq:vrData, lastvrno:1});
+          //        // i++
+          //         return (`${vrData}-1`);
+          //       }
                 
-              }
-            }
-          }
+          //     }
+          //   }
+          // }
           
 
            const vrSeqNumber=(postCode,date) =>{
@@ -336,19 +336,19 @@ function CbjExcelDaybookDrCr() {
                 year: 'numeric'
               });
               // console.log(formattedDate);
-              return formattedDate
+              return formattedDate;
 
           }
 
           const vrnoNumber= async(acc_code,date) =>{
-                            const vrnoDate = formatDate(date)
-                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100}
+                            const vrnoDate = formatDate(date);
+                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100};
                             if(sqdataEx.vrSeq != undefined){
                                 try {
                                   const response = await fetch(`/api/vrseq/:${sqdataEx.vrSeq}`);
                                   const data = await response.json();
                                    const  vrno = data.data.updatedVrno;
-                                 return vrno
+                                 return vrno;
                                 } catch (error) {
                                   console.log(error);
                               }
@@ -360,7 +360,7 @@ function CbjExcelDaybookDrCr() {
                 const response = await fetch(`/api/vrseq/:${trimVrno}`);
                 const data = await response.json();
                  const  tokenVrno = data.data.updatedVrno;
-               return tokenVrno
+               return tokenVrno;
               } catch (error) {
                 console.log(error);
             }
@@ -372,7 +372,7 @@ function CbjExcelDaybookDrCr() {
                   // const response =  await axios.get(`/api/series/:${series_code}`);
                   const data = await response.json();
                    const  bank = data.data.bankId;
-                 return bank
+                 return bank;
                 } catch (error) {
                   console.log(error);
               }
@@ -389,17 +389,17 @@ function CbjExcelDaybookDrCr() {
          
          
 
-          let lastValidDate = '';
+          // let lastValidDate = '';
        
-          let lastIsDebit = false;
-          let date = null;
-          let TokenDate =null;
-          let bankDate=null;
-          let vrnoPhaseTwo=null;
+          // let lastIsDebit = false;
+          // let date = null;
+          // let TokenDate =null;
+          // let bankDate=null;
+          // let vrnoPhaseTwo=null;
           let vrno=null;
           let tokenNo=null;
           let bank_id=null;
-          let particular_acc_code=null;
+          // let particular_acc_code=null;
           
           setTotal_rows(jsonData.length);
           bank_id = await bankId();
@@ -697,54 +697,54 @@ const handleTranTypeChange = (event) => {
 };
 const handleInputClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('division')
+  setSlugValue('division');
   setIsTableOpen(true);
 };
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('entity')
+  setSlugValue('entity');
   setIsTableOpen(true);
 };
 const handleSeriesClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('series' )
+  setSlugValue('series' );
   setIsTableOpen(true);
 };
-const handleBatchnoClick =()=>{
-  setSlugValue('qrtag')
-  setIsTableOpen(true);
-}
+// const handleBatchnoClick =()=>{
+//   setSlugValue('qrtag')
+//   setIsTableOpen(true);
+// }
 
 const handleTable=(e)=>{
   // console.log('click for false :', e)
   // setSlugValue('')
-  setIsTableOpen(false)
+  setIsTableOpen(false);
 }
 const handleChange = (selectedOption) => {
   // console.log('Selected option:', selectedOption);
-  setDivision(selectedOption.value)
+  setDivision(selectedOption.value);
 };
 
 
 useEffect(()=>{
   if(slugValue ==='division'){
     todos.map((todo)=>{
-      setDiv_code(todo.text.id)
-      setDiv_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setDiv_code(todo.text.id);
+      setDiv_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
-      setEntity_code(todo.text.id)
-      setEntity_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setEntity_code(todo.text.id);
+      setEntity_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   }  else if(slugValue ==='series'){
     todos.map((todo)=>{
-      setSeries_code(todo.text.id)
-      setSeries_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setSeries_code(todo.text.id);
+      setSeries_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     });
   }
 },[todos])
@@ -759,7 +759,7 @@ useEffect(() =>{
       console.log(seriesType);   
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     })
   }
 },[series_code])

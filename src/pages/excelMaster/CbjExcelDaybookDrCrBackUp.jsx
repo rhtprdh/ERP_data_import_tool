@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function CbjExcelDaybookDrCrBackUp() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
 //   const [serieses, setSerieses] = useState([
 // {bankid:'A1'  , series:'WA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
@@ -118,7 +118,7 @@ function CbjExcelDaybookDrCrBackUp() {
           'AAA04' : '',
           'AAA05' : '',
           'as Tally Excel' : ''
-        })
+        });
         const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
     const newWorkbooka = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(newWorkbooka, newWorksheeta, 'Sheet1');
@@ -253,11 +253,11 @@ function CbjExcelDaybookDrCrBackUp() {
              }
              
               if(month==10){
-                month ='O'
+                month ='O';
               }else if (month ==11){
-                month ='N'
+                month ='N';
               }else if(month ==12){
-                month='D'
+                month='D';
               }
               if(seriesType){
               // console.log(`SERIES TYPE:- ${seriesType}`);
@@ -274,16 +274,16 @@ function CbjExcelDaybookDrCrBackUp() {
           if(vrSeqData.length ==0){
             // console.log(`vr data in fn vrSeqData if con :- ${vrData}`)
             vrSeqData.push({vrseq:vrData, lastvrno:1});
-            return (`${vrData}-1`)
+            return (`${vrData}-1`);
             }else{
               for(let i=0; vrSeqData.length>i; i++){
                 // console.log( `${vrSeqData[i].vrseq} != ${vrData}`);
                  if(vrSeqData[i].vrseq == vrData){
                   // console.log( `${vrSeqData[i].vrseq} == ${vrData}`);
-                    vrSeqData[i].lastvrno++
+                    vrSeqData[i].lastvrno++;
                     // console.log(vrSeqData[i]);
                     // console.log(`${vrData}-${vrSeqData[i].lastvrno}`);
-                    return (`${vrData}-${vrSeqData[i].lastvrno}`)
+                    return (`${vrData}-${vrSeqData[i].lastvrno}`);
                 }else if(vrSeqData[i].vrseq != vrData){
                   // console.log(`vr data in fn vrSeqData if con which have data :-${vrSeqData[i].vrseq} == ${vrData}`)
                  vrSeqData.push({vrseq:vrData, lastvrno:1});
@@ -315,7 +315,7 @@ function CbjExcelDaybookDrCrBackUp() {
           //  } else if(postCode ==='Journal'){
           //   return (`JV${date}`)
           //  }
-          return (`${series_code}${date}`)
+          return (`${series_code}${date}`);
           }
           const dateFormate =async(value) =>{
             // const milliseconds = (value - 1) * 24 * 60 * 60 * 1000;
@@ -335,13 +335,13 @@ function CbjExcelDaybookDrCrBackUp() {
                 year: 'numeric'
               });
               // console.log(formattedDate);
-              return formattedDate
+              return formattedDate;
 
           }
 
           const vrnoNumber= async(acc_code,date) =>{
-                            const vrnoDate = formatDate(date)
-                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100}
+                            const vrnoDate = formatDate(date);
+                            const sqdataEx={vrSeq:  vrSeqNumber(acc_code, vrnoDate), lastVrno:100};
                             if(sqdataEx.vrSeq != undefined){
                                 try {
                                   const response = await fetch(`/api/vrseq/:${sqdataEx.vrSeq}`);
@@ -359,7 +359,7 @@ function CbjExcelDaybookDrCrBackUp() {
                 const response = await fetch(`/api/vrseq/:${trimVrno}`);
                 const data = await response.json();
                  const  tokenVrno = data.data.updatedVrno;
-               return tokenVrno
+               return tokenVrno;
               } catch (error) {
                 console.log(error);
             }
@@ -371,7 +371,7 @@ function CbjExcelDaybookDrCrBackUp() {
                   // const response =  await axios.get(`/api/series/:${series_code}`);
                   const data = await response.json();
                    const  bank = data.data.bankId;
-                 return bank
+                 return bank;
                 } catch (error) {
                   console.log(error);
               }
@@ -699,54 +699,54 @@ const handleTranTypeChange = (event) => {
 };
 const handleInputClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('division')
+  setSlugValue('division');
   setIsTableOpen(true);
 };
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('entity')
+  setSlugValue('entity');
   setIsTableOpen(true);
 };
 const handleSeriesClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('series' )
+  setSlugValue('series' );
   setIsTableOpen(true);
 };
 const handleBatchnoClick =()=>{
-  setSlugValue('qrtag')
+  setSlugValue('qrtag');
   setIsTableOpen(true);
 }
 
 const handleTable=(e)=>{
   // console.log('click for false :', e)
   // setSlugValue('')
-  setIsTableOpen(false)
+  setIsTableOpen(false);
 }
 const handleChange = (selectedOption) => {
   // console.log('Selected option:', selectedOption);
-  setDivision(selectedOption.value)
+  setDivision(selectedOption.value);
 };
 
 
 useEffect(()=>{
   if(slugValue ==='division'){
     todos.map((todo)=>{
-      setDiv_code(todo.text.id)
-      setDiv_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setDiv_code(todo.text.id);
+      setDiv_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
-      setEntity_code(todo.text.id)
-      setEntity_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setEntity_code(todo.text.id);
+      setEntity_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     })
   }  else if(slugValue ==='series'){
     todos.map((todo)=>{
-      setSeries_code(todo.text.id)
-      setSeries_name(todo.text.name)
-      dispatch(removeTodo(todo.id))
+      setSeries_code(todo.text.id);
+      setSeries_name(todo.text.name);
+      dispatch(removeTodo(todo.id));
     });
   }
 },[todos])
@@ -761,10 +761,10 @@ useEffect(() =>{
       // console.log(seriesType);   
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     })
   }
-},[series_code])
+},[series_code]);
 
 
   const filters = {
