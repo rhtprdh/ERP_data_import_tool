@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function AddSplitter(){
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [file, setFile] = useState(null);
     let accCodeProcess={};
     const addSplitData = [];
@@ -17,7 +17,7 @@ function AddSplitter(){
     let result = {};
     if(add){
         if(add.length > 0){
-            add= `${add}${' '}`
+            add= `${add}${' '}`;
             const addFifty = add.substring(0,50);
 
             const lastFiftyIndex = addFifty.lastIndexOf(' ');
@@ -67,14 +67,14 @@ function AddSplitter(){
 
     function accCode(codeType,accName) {
         let accCodeData = accName.substring(0,15).replace(/[^\w\s]/gi, '').replace(/\s+/g, '').toUpperCase();
-        const data =`${codeType}${accCodeData.substring(0,2)}`
+        const data =`${codeType}${accCodeData.substring(0,2)}`;
         if(accCodeProcess[data]){
             accCodeProcess[data]++;
             let count = accCodeProcess[data] < 10 ? `0${accCodeProcess[data]}` : accCodeProcess[data];
             return `${data}${count}`;
         }else{
-            accCodeProcess[data]=1
-            return `${codeType}${accCodeData.substring(0,2)}01`
+            accCodeProcess[data]=1;
+            return `${codeType}${accCodeData.substring(0,2)}01`;
         }
     }
 
@@ -87,7 +87,7 @@ function AddSplitter(){
             code_type :'Acc code Schedule EX:- C ',
             Particulars : 'Account name Ex:- A M K Bearings India Pvt Ltd',
             Address    :'address Ax:- 85, Netaji Subhash Road, 3rd Floor, Room No. 309, 700001 Kolkata'
-        })
+        });
         
             const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
             const newWorkbooka = XLSX.utils.book_new();
@@ -158,7 +158,7 @@ function AddSplitter(){
             'pinj'  : pinCode?pinCode:'',
             'district' : district,
             'state_code' : state
-                 })
+                 });
     }
     setTimeout(() => {
  

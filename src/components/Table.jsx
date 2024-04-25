@@ -16,7 +16,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import axios from 'axios';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-
  
 export default function GlobalTable({columns, rows=[], navAddButtonLink,deleteAllButton, editValue, deleteUrl}) {
   const navigate = useNavigate();

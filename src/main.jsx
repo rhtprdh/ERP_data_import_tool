@@ -68,10 +68,10 @@ const router = createBrowserRouter([
       //   element: 
       //     <DivisionMasterEdit/>  
       // },
-      {
-        path:"/entity-master",
-        element: <EntityMaster/>
-      },  
+      // {
+      //   path:"/entity-master",
+      //   element: <EntityMaster/>
+      // },  
       // {
       //   path:"/entity-master-page",
       //   element: <EntityMasterTwo/>
@@ -172,11 +172,11 @@ const router = createBrowserRouter([
       //   element: 
       //   <Order/>
       // },
-      // {
-      //   path: "/add_splitter/",
-      //   element: 
-      //   <AddSplitter/>
-      // },
+      {
+        path: "/add_splitter/",
+        element: 
+        <AddSplitter/>
+      },
       // {
       //   path: "/prod/",
       //   element: 
