@@ -1,4 +1,4 @@
-import React, {useId} from 'react'
+import React, {useId} from 'react';
 
 function Select({
     options,
@@ -6,7 +6,7 @@ function Select({
     className,
     ...props
 }, ref) {
-    const id = useId()
+    const id = useId();
     // console.log("Select label: "+label)
   return (
     <div className='w-full flex ml-4 mt-2'>

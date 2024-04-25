@@ -1,5 +1,5 @@
-import { Input } from './Index'
-import React from 'react'
+import { Input } from './Index';
+import React from 'react';
 
 function Search() {
   return (

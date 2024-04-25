@@ -11,11 +11,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Button, Input } from './Index';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import axios from 'axios';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
  
 export default function GlobalTable({columns, rows=[], navAddButtonLink,deleteAllButton, editValue, deleteUrl}) {
   const navigate = useNavigate();
