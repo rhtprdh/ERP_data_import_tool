@@ -3,7 +3,7 @@ import Input from '../components/Input';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import {useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux';
 import { addTodo } from '../app/features/todo/todoSlice';
 import Button from '../components/Button';
 
@@ -11,7 +11,7 @@ import Button from '../components/Button';
 const SearchableTable = ({slugValue, onClick, filters}) => {
   const navigate= useNavigate();
     // const history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [data, setData] = useState([]);
     const [slugApiDataId, setSlugApiDataId] =useState('');
     const [slugApiDataName, setSlugApiDataName] =useState('');
@@ -54,13 +54,13 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
               id: item[slugApiDataId],
               name: item[slugApiDataName],
           }));
-    setData(dataReady)  
+    setData(dataReady);
       })
       .catch((error) => {
-        console.log(error)
-      })
+        console.log(error);
+      });
 
-       },[slugApiDataId, slugApiDataName]) 
+       },[slugApiDataId, slugApiDataName]);
   const [sortedField, setSortedField] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
   const [searchTerm, setSearchTerm] = useState('');
@@ -79,7 +79,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
       const order = sortOrder === 'asc' ? 1 : -1;
       return a[sortedField] > b[sortedField] ? order : -order;
     });
-  };
+  }
 
   const filteredData = () => {
     if (!searchTerm) {
@@ -91,21 +91,21 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
         value.toString().toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-  };
+  }
 
-  const [selectedOption, setSelectedOption] = useState('')
+  const [selectedOption, setSelectedOption] = useState('');
 
   const handleChange=(event) =>{
-      dispatch(addTodo(event)) 
-      onClick(false)
+      dispatch(addTodo(event));
+      onClick(false);
     };
     const handleBlankChange=() =>{
-      const data= {id:'',name:''}
+      const data= {id:'',name:''};
       dispatch(addTodo(data)); 
-      onClick(false)
+      onClick(false);
     }
     const handleBack=(event) =>{
-      onClick(false)
+      onClick(false);
     }
   
  

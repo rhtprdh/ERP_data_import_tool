@@ -10,7 +10,7 @@ function dateLibrary(date) {
         // second: '2-digit',
       }).split('/');
       const dateNewFormate =  `${date1[2]}-${date1[0]}-${date1[1]}`;
-      return dateNewFormate
+      return dateNewFormate;
 }
 
-export default dateLibrary
+export default dateLibrary;
