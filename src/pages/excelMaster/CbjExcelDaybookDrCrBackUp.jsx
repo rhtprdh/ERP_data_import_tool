@@ -49,7 +49,7 @@ function CbjExcelDaybookDrCrBackUp() {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-  };
+  }
   const csvFormate= ()=>{
         csvFormateData.push({
           'Date' : null,
@@ -166,7 +166,7 @@ function CbjExcelDaybookDrCrBackUp() {
           } else {
               return ''; // Handle other cell types as needed
           }
-      };
+      }
 
       //   const jsonData = XLSX.utils.sheet_to_json(sheet, {
       //     raw: true,
@@ -267,7 +267,7 @@ function CbjExcelDaybookDrCrBackUp() {
                 return `${year}Y`;
               }
             }
-          };
+          }
         
         
           const vrSeqDatafn =(vrData)=> {
@@ -347,7 +347,7 @@ function CbjExcelDaybookDrCrBackUp() {
                                   const response = await fetch(`/api/vrseq/:${sqdataEx.vrSeq}`);
                                   const data = await response.json();
                                    const  vrno = data.data.updatedVrno;
-                                 return vrno
+                                 return vrno;
                                 } catch (error) {
                                   console.log(error);
                               }
@@ -749,7 +749,7 @@ useEffect(()=>{
       dispatch(removeTodo(todo.id));
     });
   }
-},[todos])
+},[todos]);
 
 useEffect(() =>{
   if(series_code){

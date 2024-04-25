@@ -92,7 +92,7 @@ function Order() {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-  };
+  }
   const csvFormate= ()=>{
         csvFormateData.push({
                             'Voucher_Date' : '* = Mendatory',
@@ -307,7 +307,7 @@ function Order() {
                     if(row.Voucher_Number !== indent_number_last){
                        
                         setHead(true);
-                    vrno = await vrnoNumber('',row.Voucher_Date)
+                    vrno = await vrnoNumber('',row.Voucher_Date);
                       let l=jsonData.length;
                       console.log(tranType);
                     if(vrno){
@@ -797,7 +797,7 @@ function Order() {
 
     reader.readAsArrayBuffer(file);
 
-  };
+  }
 
 
 
@@ -808,27 +808,27 @@ function Order() {
   }
 const handleTranTypeChange = (event) => {
   setTranType(event.target.value);
-};
+}
 const handleInputClick = () => {
   // navigate('/search-table/:division')
   setSlugValue('division');
   setIsTableOpen(true);
-};
+}
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
   setSlugValue('entity');
   setIsTableOpen(true);
-};
+}
 const handleSeriesClick = () => {
   // navigate('/search-table/:division')
   setSlugValue('series' );
   setIsTableOpen(true);
-};
+}
 const handleAddonClick = () => {
   // navigate('/search-table/:division')
   setSlugValue('addon' );
   setIsTableOpen(true);
-};
+}
 const handleBatchnoClick =()=>{
   setSlugValue('qrtag');
   setIsTableOpen(true);
@@ -839,7 +839,7 @@ const handleTable=(e)=>{
 }
 const handleChange = (selectedOption) => {
   setDivision(selectedOption.value);
-};
+}
 
 
 useEffect(()=>{
@@ -848,14 +848,14 @@ useEffect(()=>{
       setDiv_code(todo.text.id);
       setDiv_name(todo.text.name);
       dispatch(removeTodo(todo.id));
-    })
+    });
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
       setEntity_code(todo.text.id);
       setEntity_name(todo.text.name);
       dispatch(removeTodo(todo.id));
-    })
+    });
   }  else if(slugValue ==='series'){
     todos.map((todo)=>{
       setSeries_code(todo.text.id);
@@ -870,7 +870,7 @@ useEffect(()=>{
     });
   }
 
-},[todos])
+},[todos]);
 
 useEffect( () =>{
   async function fetchData(){
@@ -892,7 +892,7 @@ useEffect( () =>{
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
     }else if(addon_code){
       await axios.get(`/api/addon/:${addon_code}`)
       .then((response) => {
@@ -952,9 +952,9 @@ useEffect( () =>{
       })
       .catch((error) => {
         console.log(error);
-      })
-    };
-  };
+      });
+    }
+  }
   fetchData();
   
 },[series_code, entity_code, addon_code]);
@@ -964,7 +964,7 @@ useEffect( () =>{
     entity_code: entity_code,
     div_code: div_code,
     series_code: series_code,
-      };
+      }
 
 
   return (

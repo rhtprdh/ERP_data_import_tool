@@ -200,7 +200,7 @@ function IndentImport() {
               for(let i=0; vrSeqData.length>i; i++){
                  if(vrSeqData[i].vrseq == vrData){
                     vrSeqData[i].lastvrno++;
-                    return (`${vrData}-${vrSeqData[i].lastvrno}`)
+                    return (`${vrData}-${vrSeqData[i].lastvrno}`);
                 }else if(vrSeqData[i].vrseq != vrData){
                  vrSeqData.push({vrseq:vrData, lastvrno:1});
                   return (`${vrData}-1`);
@@ -407,7 +407,7 @@ function IndentImport() {
   }
     reader.readAsArrayBuffer(file);
     
-  };
+  }
 
 
 
@@ -419,22 +419,22 @@ function IndentImport() {
   }
 const handleTranTypeChange = (event) => {
   setTranType(event.target.value);
-};
+}
 const handleInputClick = () => {
   // navigate('/search-table/:division')
   setSlugValue('division');
   setIsTableOpen(true);
-};
+}
 const handleEntityClick = () => {
   // navigate('/search-table/:division')
   setSlugValue('entity');
   setIsTableOpen(true);
-};
+}
 const handleSeriesClick = () => {
   // navigate('/search-table/:division')
-  setSlugValue('series' );
+  setSlugValue('series');
   setIsTableOpen(true);
-};
+}
 // const handleBatchnoClick =()=>{
 //   setSlugValue('qrtag')
 //   setIsTableOpen(true);
@@ -454,14 +454,14 @@ useEffect(()=>{
       setDiv_code(todo.text.id);
       setDiv_name(todo.text.name);
       dispatch(removeTodo(todo.id));
-    })
+    });
   } 
   else if(slugValue ==='entity'){
     todos.map((todo)=>{
       setEntity_code(todo.text.id);
       setEntity_name(todo.text.name);
       dispatch(removeTodo(todo.id));
-    })
+    });
   }  else if(slugValue ==='series'){
     todos.map((todo)=>{
       setSeries_code(todo.text.id);
@@ -469,7 +469,7 @@ useEffect(()=>{
       dispatch(removeTodo(todo.id));
     });
   }
-},[todos])
+},[todos]);
 
 useEffect(() =>{
   if(series_code){
@@ -480,7 +480,7 @@ useEffect(() =>{
     })
     .catch((error) => {
       console.log(error);
-    })
+    });
   }
 },[series_code]);
 
@@ -489,7 +489,7 @@ useEffect(() =>{
     entity_code: entity_code,
     div_code: div_code,
     series_code: series_code,
-      };
+      }
 
 
   return (
