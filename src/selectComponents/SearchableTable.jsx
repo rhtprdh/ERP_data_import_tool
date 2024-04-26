@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import Input from '../components/Input';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 // import { useNavigate, useParams } from 'react-router-dom';
@@ -53,7 +53,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
           const dataReady = data.data.map((item) => ({
               id: item[slugApiDataId],
               name: item[slugApiDataName],
-          }));
+          }))
     setData(dataReady);
       })
       .catch((error) => {
@@ -104,7 +104,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
       dispatch(addTodo(data)); 
       onClick(false);
     }
-    const handleBack=(event) =>{
+    const handleBack=() =>{
       onClick(false);
     }
   
