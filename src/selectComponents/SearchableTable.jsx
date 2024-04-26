@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Input from '../components/Input';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
+// import { useNavigate, useParams } from 'react-router-dom';
+// import axios from 'axios';
 import {useDispatch} from 'react-redux';
 import { addTodo } from '../app/features/todo/todoSlice';
 import Button from '../components/Button';
 
 
 const SearchableTable = ({slugValue, onClick, filters}) => {
-  const navigate= useNavigate();
+  // const navigate= useNavigate();
     // const history = useHistory();
     const dispatch = useDispatch();
     const [data, setData] = useState([]);
@@ -93,7 +93,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
     );
   }
 
-  const [selectedOption, setSelectedOption] = useState('');
+  // const [selectedOption, setSelectedOption] = useState('');
 
   const handleChange=(event) =>{
       dispatch(addTodo(event));

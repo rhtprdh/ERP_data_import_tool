@@ -986,10 +986,10 @@ useEffect( () =>{
          <div>
           {isTableOpen &&
           <div>
-            <SearchableTable 
+            {/* <SearchableTable 
             onClick={handleTable}
             slugValue={slugValue}
-            filters={filters}/>
+            filters={filters}/> */}
           </div>
             }
             {!isTableOpen &&
