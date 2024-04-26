@@ -157,16 +157,16 @@ const router = createBrowserRouter([
       //   element: 
       //   <CbjExcelDaybook/>
       // },
-      // {
-      //   path: "/cbj_excel_daybook/j",
-      //   element: 
-      //   <CbjExcelDaybookDrCrBackUp/>
-      // },
-      // {
-      //   path: "/indent/",
-      //   element: 
-      //   <IndentImport/>
-      // },
+      {
+        path: "/cbj_excel_daybook/j",
+        element: 
+        <CbjExcelDaybookDrCrBackUp/>
+      },
+      {
+        path: "/indent/",
+        element: 
+        <IndentImport/>
+      },
       {
         path: "/order/",
         element: 
