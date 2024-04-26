@@ -55,67 +55,67 @@ const router = createBrowserRouter([
         path:"/tran",
         element: <Home dashboardType="tran"/>
       },
-      // {
-      //   path:"/division-master",
-      //   element: <DivisionMaster1/>
-      // },
-      //  {
-      //   path:"/division-master-page",
-      //   element: <DivisionMaster/>
-      // },
-      // {
-      //   path: "/division-master-page/:slug",
-      //   element: 
-      //     <DivisionMasterEdit/>  
-      // },
-      // {
-      //   path:"/entity-master",
-      //   element: <EntityMaster/>
-      // },  
-      // {
-      //   path:"/entity-master-page",
-      //   element: <EntityMasterTwo/>
-      // },
-      // {
-      //   path:"/entity-master-page/:slug",
-      //   element: <EntityMasterEdit/>
-      // },
-      // {
-      //   path:"/series-master",
-      //   element: <SeriesMaster/>
-      // },  
-      // {
-      //   path:"/series-master-page",
-      //   element: <SeriesMasterTwo/>
-      // },
-      // {
-      //   path:"/series-master-page/:slug",
-      //   element: <SeriesMasterEdit/>
-      // },
-      // {
-      //   path:"/stax-master",
-      //   element: <StaxMaster/>
-      // },  
-      // {
-      //   path:"/stax-master-page",
-      //   element: <StaxMasterTwo/>
-      // },
-      // {
-      //   path:"/stax-master-page/:slug",
-      //   element: <StaxMasterEdit/>
-      // },
-      // {
-      //   path:"/vrseq-master",
-      //   element: <SeriesSeq/>
-      // },  
-      // {
-      //   path:"/vrseq-master-page",
-      //   element: <SeriesSeqTwo/>
-      // },
-      // {
-      //   path:"/vrseq-master-page/:slug",
-      //   element: <SeriesSeqEdit/>
-      // },
+      {
+        path:"/division-master",
+        element: <DivisionMaster1/>
+      },
+       {
+        path:"/division-master-page",
+        element: <DivisionMaster/>
+      },
+      {
+        path: "/division-master-page/:slug",
+        element: 
+          <DivisionMasterEdit/>  
+      },
+      {
+        path:"/entity-master",
+        element: <EntityMaster/>
+      },  
+      {
+        path:"/entity-master-page",
+        element: <EntityMasterTwo/>
+      },
+      {
+        path:"/entity-master-page/:slug",
+        element: <EntityMasterEdit/>
+      },
+      {
+        path:"/series-master",
+        element: <SeriesMaster/>
+      },  
+      {
+        path:"/series-master-page",
+        element: <SeriesMasterTwo/>
+      },
+      {
+        path:"/series-master-page/:slug",
+        element: <SeriesMasterEdit/>
+      },
+      {
+        path:"/stax-master",
+        element: <StaxMaster/>
+      },  
+      {
+        path:"/stax-master-page",
+        element: <StaxMasterTwo/>
+      },
+      {
+        path:"/stax-master-page/:slug",
+        element: <StaxMasterEdit/>
+      },
+      {
+        path:"/vrseq-master",
+        element: <SeriesSeq/>
+      },  
+      {
+        path:"/vrseq-master-page",
+        element: <SeriesSeqTwo/>
+      },
+      {
+        path:"/vrseq-master-page/:slug",
+        element: <SeriesSeqEdit/>
+      },
 
       // {
       //   path: "/qr-tag",
