@@ -968,170 +968,168 @@ useEffect( () =>{
 
 
   return (
-    // <div>
-    // {isFormTrue &&
-    //     <div className="flex justify-center items-center h-screen">
-    //      <div className="flex flex-col items-center">
-    //       <div className="flex space-x-2">
-    //         <div className="loader-dot bg-blue-500 rounded-full h-3 w-3 animate-bounce"></div>
-    //         <div className="loader-dot bg-blue-500 rounded-full h-3 w-3 animate-bounce"></div>
-    //         <div className="loader-dot bg-blue-500 rounded-full h-3 w-3 animate-bounce"></div>
-    //       </div>
-    //       <div className=" text-white text-xl mt-2">{`Total ${row_process} rows processed of ${total_rows} rows`}</div>
-    //       <div className=" text-white text-xl mt-2">Please wait...</div>
-    //       </div>
-    //          </div>}
-    //  {!isFormTrue &&
+    <div>
+    {isFormTrue &&
+        <div className="flex justify-center items-center h-screen">
+         <div className="flex flex-col items-center">
+          <div className="flex space-x-2">
+            <div className="loader-dot bg-blue-500 rounded-full h-3 w-3 animate-bounce"></div>
+            <div className="loader-dot bg-blue-500 rounded-full h-3 w-3 animate-bounce"></div>
+            <div className="loader-dot bg-blue-500 rounded-full h-3 w-3 animate-bounce"></div>
+          </div>
+          <div className=" text-white text-xl mt-2">{`Total ${row_process} rows processed of ${total_rows} rows`}</div>
+          <div className=" text-white text-xl mt-2">Please wait...</div>
+          </div>
+             </div>}
+     {!isFormTrue &&
 
-    //      <div>
-    //       {isTableOpen &&
-    //       <div>
-    //         <SearchableTable 
-    //         onClick={handleTable}
-    //         slugValue={slugValue}
-    //         filters={filters}/>
-    //       </div>
-    //         }
-    //         {!isTableOpen &&
-    //         <>
-    //            <div className=" m-2 min-h-[100px] rounded shadow-xl sm:col-span-4 bg-slate-300  justify-center items-center">
+         <div>
+          {isTableOpen &&
+          <div>
+            <SearchableTable 
+            onClick={handleTable}
+            slugValue={slugValue}
+            filters={filters}/>
+          </div>
+            }
+            {!isTableOpen &&
+            <>
+               <div className=" m-2 min-h-[100px] rounded shadow-xl sm:col-span-4 bg-slate-300  justify-center items-center">
 
-    //       <form onSubmit={handleSubmit} className="mr-1">
-    //       <div className=" flex">
-    //             <div className=" w-5/12 sm:w-3/12 ">
-    //           <Input
-    //               label ='Addon'
-    //               value={addon_code}
-    //               onClick={handleAddonClick}
-    //               onChange={handleChange}
-    //               required
-    //           />
-    //           </div>
-    //           <div className="w-7/12 sm:w-9/12">
-    //           <Input
-    //           value={addon_name}
-    //           onClick={handleAddonClick}
-    //           onChange={handleChange}
+          <form onSubmit={handleSubmit} className="mr-1">
+          <div className=" flex">
+                <div className=" w-5/12 sm:w-3/12 ">
+              <Input
+                  label ='Addon'
+                  value={addon_code}
+                  onClick={handleAddonClick}
+                  onChange={handleChange}
+                  required
+              />
+              </div>
+              <div className="w-7/12 sm:w-9/12">
+              <Input
+              value={addon_name}
+              onClick={handleAddonClick}
+              onChange={handleChange}
               
-    //           />
-    //           </div>
-    //           </div>
+              />
+              </div>
+              </div>
 
-    //         <div className=" flex">
-    //           <div className="  w-5/12 sm:w-3/12 ">
-    //             <Input
-    //                 label ='Entity'
-    //                 value={entity_code}
-    //                 onClick={handleEntityClick}
-    //                 onChange={handleChange}
-    //                 required
-    //             />
-    //            </div>
-    //           <div className=" w-7/12 sm:w-9/12">
-    //               <Input
-    //                 value={entity_name}
-    //                 onClick={handleEntityClick}
-    //                 onChange={handleChange}
+            <div className=" flex">
+              <div className="  w-5/12 sm:w-3/12 ">
+                <Input
+                    label ='Entity'
+                    value={entity_code}
+                    onClick={handleEntityClick}
+                    onChange={handleChange}
+                    required
+                />
+               </div>
+              <div className=" w-7/12 sm:w-9/12">
+                  <Input
+                    value={entity_name}
+                    onClick={handleEntityClick}
+                    onChange={handleChange}
                     
-    //               />
-    //           </div>
-    //           </div>
-    //             <div className=" flex">
-    //             <div className="  w-5/12 sm:w-3/12 ">
-    //           <Input
-    //               label ='Division'
-    //               value={div_code}
-    //               onClick={handleInputClick}
-    //               onChange={handleChange}
-    //               required
-    //           />
-    //           </div>
-    //           <div className=" w-7/12 sm:w-9/12">
-    //           <Input
-    //           value={div_name}
-    //           onClick={handleInputClick}
-    //           onChange={handleChange}
-    //           />
-    //           </div>
-    //           </div>
-    //           <div className=" flex">
-    //             <div className="  w-5/12 sm:w-3/12 ">
-    //           <Input 
-    //               label ='Series'
-    //               value={series_code}
-    //               onClick={handleSeriesClick}
-    //               onChange={handleChange}
-    //               required
-    //           />
-    //           </div>
-    //           <div className=" w-7/12 sm:w-9/12">
-    //           <Input
-    //           value={series_name}
-    //           onClick={handleSeriesClick}
-    //           onChange={handleChange}
+                  />
+              </div>
+              </div>
+                <div className=" flex">
+                <div className="  w-5/12 sm:w-3/12 ">
+              <Input
+                  label ='Division'
+                  value={div_code}
+                  onClick={handleInputClick}
+                  onChange={handleChange}
+                  required
+              />
+              </div>
+              <div className=" w-7/12 sm:w-9/12">
+              <Input
+              value={div_name}
+              onClick={handleInputClick}
+              onChange={handleChange}
+              />
+              </div>
+              </div>
+              <div className=" flex">
+                <div className="  w-5/12 sm:w-3/12 ">
+              <Input 
+                  label ='Series'
+                  value={series_code}
+                  onClick={handleSeriesClick}
+                  onChange={handleChange}
+                  required
+              />
+              </div>
+              <div className=" w-7/12 sm:w-9/12">
+              <Input
+              value={series_name}
+              onClick={handleSeriesClick}
+              onChange={handleChange}
               
-    //           />
-    //           </div>
-    //           </div>
+              />
+              </div>
+              </div>
         
 
 
 
-    //           <div className="w-full flex mt-2 mb-1">
-    //                 <label className=" w-64">
-    //                 Tran Type
-    //                 </label>
-    //                     <select
-    //                     value={tranType}
-    //                     className={`px-3 py-1 bg-blue-200 text-black outline-blue-500 focus:bg-gray-50 duration-200 border border-blue-400 w-full`}
-    //                     onChange={handleTranTypeChange}
-    //                     required
-    //                     >
-    //                     <option></option>
-    //                     <option>Sales Contract</option>
-    //                     {/* <option>Receipt</option>
-    //                     <option>Journal</option>
-    //                     <option>Purchase</option>
-    //                     <option>Sales</option>
-    //                     <option>Cash</option> */}
+              <div className="w-full flex mt-2 mb-1">
+                    <label className=" w-64">
+                    Tran Type
+                    </label>
+                        <select
+                        value={tranType}
+                        className={`px-3 py-1 bg-blue-200 text-black outline-blue-500 focus:bg-gray-50 duration-200 border border-blue-400 w-full`}
+                        onChange={handleTranTypeChange}
+                        required
+                        >
+                        <option></option>
+                        <option>Sales Contract</option>
+                        {/* <option>Receipt</option>
+                        <option>Journal</option>
+                        <option>Purchase</option>
+                        <option>Sales</option>
+                        <option>Cash</option> */}
                        
-    //                     </select>
-    //                 </div>
+                        </select>
+                    </div>
 
-    //             <div className="flex">
-    //              <div className="w-6/12">
-    //             <input type="file" accept=".xlsx" onChange={handleFileChange} />
-    //             </div>
-    //             <div className="w-6/12 flex justify-end">
-    //             <Button className="ml-5" children='Process' onClick={processData}/>
+                <div className="flex">
+                 <div className="w-6/12">
+                <input type="file" accept=".xlsx" onChange={handleFileChange} />
+                </div>
+                <div className="w-6/12 flex justify-end">
+                <Button className="ml-5" children='Process' onClick={processData}/>
  
-    //             </div>
-    //             </div>
-    //             <div className="flex">File must be in .CSV</div>
+                </div>
+                </div>
+                <div className="flex">File must be in .CSV</div>
                
               
                       
-    //         </form >
+            </form >
                 
-    //                 {/* <Button className="float-right ml-5 mr-5" children='Download Formate' onClick={csvFormate}/>
-    //                 <Button
-    //                 children='Exit'
-    //                 className="float-right ml-5 mr-5 px-10 text-lg"
-    //                 onClick={() => navigate(-1)}
-    //                 /> */}
-    //                     <div className="flex justify-end">
-    //                   <Button className="ml-5 mb-5 " children='Download Format' onClick={csvFormate} />
-    //                   <Button className="ml-5 mb-5 px-6 text-lg" children='Exit' onClick={() => navigate(-1)} />
-    //                 </div>
-    //                 </div>
-    //               </>      
-    //                     }
-    //                      </div>
-    //                   }
-    // </div>
-    <div>
-      <h1>hello</h1>
+                    {/* <Button className="float-right ml-5 mr-5" children='Download Formate' onClick={csvFormate}/>
+                    <Button
+                    children='Exit'
+                    className="float-right ml-5 mr-5 px-10 text-lg"
+                    onClick={() => navigate(-1)}
+                    /> */}
+                        <div className="flex justify-end">
+                      <Button className="ml-5 mb-5 " children='Download Format' onClick={csvFormate} />
+                      <Button className="ml-5 mb-5 px-6 text-lg" children='Exit' onClick={() => navigate(-1)} />
+                    </div>
+                    </div>
+                  </>      
+                        }
+                         </div>
+                      }
     </div>
+   
   );
 }
 
