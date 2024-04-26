@@ -112,50 +112,51 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
     if (!filteredData()) return <div>Loading...</div>;
     if (filteredData()){
   return (
-    <div>
-      <div className="flex">
-      <Input
-        type="search"
-        placeholder="Search here"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-        <Button
-                      children='Back'
-                      className=" flex items-center justify-center h-9 mt-2 mb-1"
-                      onClick={() => handleBack()}
-                      />
+    // <div>
+    //   <div className="flex">
+    //   <Input
+    //     type="search"
+    //     placeholder="Search here"
+    //     value={searchTerm}
+    //     onChange={(e) => setSearchTerm(e.target.value)}
+    //   />
+    //     <Button
+    //                   children='Back'
+    //                   className=" flex items-center justify-center h-9 mt-2 mb-1"
+    //                   onClick={() => handleBack()}
+    //                   />
       
-      </div>
-      <div>
-      <Table stickyHeader aria-label="table">
-        <TableHead>
-          <TableRow>
-            <TableCell onClick={() => handleSort('id')}>Code</TableCell>
-            <TableCell onClick={() => handleSort('name')}>Code Name</TableCell>
-          </TableRow>
-        </TableHead>
+    //   </div>
+    //   <div>
+    //   <Table stickyHeader aria-label="table">
+    //     <TableHead>
+    //       <TableRow>
+    //         <TableCell onClick={() => handleSort('id')}>Code</TableCell>
+    //         <TableCell onClick={() => handleSort('name')}>Code Name</TableCell>
+    //       </TableRow>
+    //     </TableHead>
        
-        <TableBody>
-          <TableRow onClick={() => handleBlankChange()}>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-          {filteredData().map((item) => (
-            <TableRow key={Math.random()}
-            onClick={() => handleChange(item)}
-            // value={selectedOption}
-            >
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.name}</TableCell>
-              {/* <TableCell>{item.age}</TableCell> */}
-              {/* Add more cells based on your data structure */}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      </div>
-    </div>
+    //     <TableBody>
+    //       <TableRow onClick={() => handleBlankChange()}>
+    //         <TableCell></TableCell>
+    //         <TableCell></TableCell>
+    //       </TableRow>
+    //       {filteredData().map((item) => (
+    //         <TableRow key={Math.random()}
+    //         onClick={() => handleChange(item)}
+    //         // value={selectedOption}
+    //         >
+    //           <TableCell>{item.id}</TableCell>
+    //           <TableCell>{item.name}</TableCell>
+    //           {/* <TableCell>{item.age}</TableCell> */}
+    //           {/* Add more cells based on your data structure */}
+    //         </TableRow>
+    //       ))}
+    //     </TableBody>
+    //   </Table>
+    //   </div>
+    // </div>
+    <div></div>
   );
 }
 }
