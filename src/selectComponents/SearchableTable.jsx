@@ -58,7 +58,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
       })
       .catch((error) => {
         console.log(error);
-      });
+      })
 
        },[slugApiDataId, slugApiDataName]);
   const [sortedField, setSortedField] = useState(null);
@@ -90,7 +90,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
       Object.values(item).some(value =>
         value.toString().toLowerCase().includes(searchTerm.toLowerCase())
       )
-    );
+    )
   }
 
   // const [selectedOption, setSelectedOption] = useState('');
@@ -100,13 +100,15 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
       onClick(false);
     }
     const handleBlankChange=() =>{
-      const data= {id:'',name:''};
+      const data= {id:'',name:''}
       dispatch(addTodo(data)); 
       onClick(false);
     }
     const handleBack=() =>{
       onClick(false);
     }
+
+    let idNumber =Math.random();
   
  
     if (!filteredData()) return <div>Loading...</div>;
@@ -142,7 +144,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
             <TableCell></TableCell>
           </TableRow>
           {filteredData().map((item) => (
-            <TableRow key={Math.random()}
+            <TableRow key={idNumber}
             onClick={() => handleChange(item)}
             // value={selectedOption}
             >
