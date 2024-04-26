@@ -127,6 +127,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
                       />
       
       </div>
+      <div>
       <Table stickyHeader aria-label="table">
         <TableHead>
           <TableRow>
@@ -153,6 +154,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
           ))}
         </TableBody>
       </Table>
+      </div>
     </div>
   );
 }
