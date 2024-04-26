@@ -78,7 +78,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
     return data.slice().sort((a, b) => {
       const order = sortOrder === 'asc' ? 1 : -1;
       return a[sortedField] > b[sortedField] ? order : -order;
-    });
+    })
   }
 
   const filteredData = () => {
@@ -98,7 +98,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
   const handleChange=(event) =>{
       dispatch(addTodo(event));
       onClick(false);
-    };
+    }
     const handleBlankChange=() =>{
       const data= {id:'',name:''};
       dispatch(addTodo(data)); 
@@ -154,7 +154,8 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
         </TableBody>
       </Table>
     </div>
-  );}
-};
+  );
+}
+}
 
 export default SearchableTable;
