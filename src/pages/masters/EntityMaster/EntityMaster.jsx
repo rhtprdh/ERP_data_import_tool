@@ -15,7 +15,7 @@ function EntityMaster() {
 
        useEffect(() => {
         // console.log( axios.get('/api/division'))
-        axios.get('https://main.d6ry6zko4bsgj.amplifyapp.com/api/entity')
+        axios.get('13.126.114.161:3000/api/entity')
         .then((response) => {
           setRows(response.data.data)
           
