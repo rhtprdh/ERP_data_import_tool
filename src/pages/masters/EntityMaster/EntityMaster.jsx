@@ -15,7 +15,7 @@ function EntityMaster() {
 
        useEffect(() => {
         // console.log( axios.get('/api/division'))
-        axios.get('http://13.126.114.161:3000/api/entity')
+        axios.get('/api/entity')
         .then((response) => {
           setRows(response.data.data)
           
