@@ -40,7 +40,7 @@ function IndentImport() {
   };
   const csvFormate= ()=>{
         csvFormateData.push({
-            'Voucher_Date' : null,
+            'Voucher_Date' : 'Add the data from line 2',
             'Voucher_Number' : null,
             'Indent_Remark':null,
             'Voucher_Type' : null,
@@ -51,9 +51,6 @@ function IndentImport() {
             'Quantity_Balance' : null,
             'Unit_Code_erp' : null,
             'Stock_type_code' : null            
-          
-        });
-        csvFormateData.push({
           
         });
         const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
@@ -483,12 +480,40 @@ useEffect(() =>{
     });
   }
 },[series_code]);
+useEffect(()=>{
+  if(div_code){
+  axios.get(`/api/division/:${div_code}`)
+  .then((response) => {
+    if(response){
+      if(response.data.data.entity_code !== entity_code? entity_code:''){
+        alert(`The selected division ${div_code}: ${div_name} is not in entity ${entity_code}: ${entity_name}, Please correct the division.`);
+        
+        
+      setDiv_code('')
+      setDiv_name('')
+        return;
+      }
+    }
+  })
+  .catch((error) => {
+      // navigate('/')
+    console.log(error)
+    
+  })
+}
+},[entity_code])
+
+useEffect(()=>{
+  setSeries_code('');
+  setSeries_name('');
+},[entity_code,div_code,tranType ])
 
 
   const filters = {
     entity_code: entity_code,
     div_code: div_code,
-    series_code: series_code,
+    series_code: series_code, 
+    tran_type: tranType
       }
 
 
@@ -559,6 +584,20 @@ useEffect(() =>{
               />
               </div>
               </div>
+              <div className="w-full flex mt-2 mb-1">
+                    <label className=" w-64">
+                    Tran Type
+                    </label>
+                        <select
+                        value={tranType}
+                        className={`px-3 py-1 bg-blue-200 text-black outline-blue-500 focus:bg-gray-50 duration-200 border border-blue-400 w-full`}
+                        onChange={handleTranTypeChange}
+                        required
+                        >
+                        <option></option>
+                        <option>Indent</option>
+                        </select>
+                    </div>
               <div className=" flex">
                 <div className=" w-5/12 sm:w-3/12">
               <Input
@@ -578,20 +617,7 @@ useEffect(() =>{
               />
               </div>
               </div>
-              <div className="w-full flex mt-2 mb-1">
-                    <label className=" w-64">
-                    Tran Type
-                    </label>
-                        <select
-                        value={tranType}
-                        className={`px-3 py-1 bg-blue-200 text-black outline-blue-500 focus:bg-gray-50 duration-200 border border-blue-400 w-full`}
-                        onChange={handleTranTypeChange}
-                        required
-                        >
-                        <option></option>
-                        <option>Indent</option>
-                        </select>
-                    </div>
+           
 
                 <div className="flex">
                  <div className="w-6/12">

@@ -210,7 +210,8 @@ const handleDelete = (id) => {
             <TableRow>
               {columns.map((column) => (
                 <TableCell
-                  key={column.id}
+                  // key={column.id}
+                  key={Math.random()}
                   // align={column.align}
                   // style={{ minWidth: column.minWidth }}
                 >
@@ -226,11 +227,12 @@ const handleDelete = (id) => {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row[editValue]}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={Math.random()}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id}>
+                        // <TableCell key={column.id}>
+                        <TableCell key={Math.random()}>
                            {/* align={column.align} it is above code */}
                           {column.format && typeof value === 'number'
                             ? column.format(value)

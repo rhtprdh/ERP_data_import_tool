@@ -15,6 +15,7 @@ function SeriesMaster() {
        { id: 'div_name', label: 'Div Name'},
        { id: 'post_code', label: 'Post  code'},
        { id: 'bankId', label: 'BankId'},
+       { id: 'state_code', label: 'State Code'},
      
        
        ] 

@@ -20,11 +20,21 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
     useEffect(() => {
      
       // Constructing the query string from the filters object
-      const queryString = Object.keys(filters)
+      let queryString = Object.keys(filters)
       .filter(key => filters[key] !== undefined && filters[key] !== null && filters[key] !== '')
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(filters[key])}`)
       .join('&');
-      
+      // console.log(`tran_type =${filters.tran_type}&`);
+      // console.log(queryString);
+      // console.log(slugValue);
+      if(slugValue != 'series'){
+        // console.log('not in series');
+        queryString = queryString.replace(`tran_type=${filters.tran_type}`,'');
+        queryString = queryString.replace(`&tran_type=${filters.tran_type}`,'');
+        queryString = queryString.replace(`tran_type=${filters.tran_type}&`,'');
+      }
+
+      console.log(queryString);
       // Appending the query string to the URL
       const apiUrl = `/api/${slugValue}?${queryString}`;
       fetch(apiUrl)
@@ -108,7 +118,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
       onClick(false);
     }
 
-    let idNumber =Math.random();
+    
   
  
     if (!filteredData()) return <div>Loading...</div>;
@@ -144,7 +154,7 @@ const SearchableTable = ({slugValue, onClick, filters}) => {
             <TableCell></TableCell>
           </TableRow>
           {filteredData().map((item) => (
-            <TableRow key={idNumber}
+            <TableRow key={Math.random()} 
             onClick={() => handleChange(item)}
             // value={selectedOption}
             >

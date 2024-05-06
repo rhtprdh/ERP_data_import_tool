@@ -9,10 +9,10 @@ function SeriesSeq() {
   const columns =[
         { id: 'vrSeq', label: 'Series Sequence' },
         { id: 'lastVrno', label: 'Last Voucher' },
-        { id: 'entity_code', label: 'Entity Code' },
-        { id: 'entity_name', label: 'Entity Name' },
-       { id: 'div_code', label: 'Div  code'},
-       { id: 'div_name', label: 'Div Name'},
+      //   { id: 'entity_code', label: 'Entity Code' },
+      //   { id: 'entity_name', label: 'Entity Name' },
+      //  { id: 'div_code', label: 'Div  code'},
+      //  { id: 'div_name', label: 'Div Name'},
      
        
        ] 

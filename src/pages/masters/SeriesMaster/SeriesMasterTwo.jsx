@@ -12,11 +12,12 @@ function SeriesMasterTwo({ rows_data  }) {
 
   const[div_code, setDiv_code] =useState('');
   const[div_name, setDiv_name] =useState('');
-  const[entity_code, setEntity_code] =useState('');
-  const[entity_name, setEntity_name] =useState('');
+  const[entity_code, setEntity_code] =useState();
+  const[entity_name, setEntity_name] =useState();
   const [isTableOpen, setIsTableOpen] = useState(false);
   const [slugValue, setSlugValue] = useState();
   const dispatch = useDispatch();
+  let divEntityCheck=true;
   const todos = useSelector(state => state.todos);
   // rows_data ={
     // div_code : "FsadG" ,div_name:  " dasdasFINKAL GRAND DIVISION", entity_code:"ER"}
@@ -32,11 +33,48 @@ function SeriesMasterTwo({ rows_data  }) {
         bankId : rows_data?.bankId || "",
         tran_type : rows_data?.tran_type || "",
         series_type : rows_data?.series_type || "",
+        state_code : rows_data?.state_code || "",
     
     },
 });
 
     const navigate= useNavigate();
+
+    const stateCodes = [
+      { value: '', label: '' },
+      { value: 'AD', label: 'Andhra Pradesh' },
+      { value: 'AR', label: 'Arunachal Pradesh' },
+      { value: 'AS', label: 'Assam' },
+      { value: 'BR', label: 'Bihar' },
+      { value: 'CG', label: 'Chattisgarh' },
+      { value: 'DL', label: 'Delhi' },
+      { value: 'GA', label: 'Goa' },
+      { value: 'GJ', label: 'Gujarat' },
+      { value: 'HR', label: 'Haryana' },
+      { value: 'HP', label: 'Himachal Pradesh' },
+      { value: 'JK', label: 'Jammu and Kashmir' },
+      { value: 'JH', label: 'Jharkhand' },
+      { value: 'KA', label: 'Karnataka' },
+      { value: 'KL', label: 'Kerala' },
+      { value: 'LD', label: 'Lakshadweep Islands' },
+      { value: 'MP', label: 'Madhya Pradesh' },
+      { value: 'MH', label: 'Maharashtra' },
+      { value: 'MN', label: 'Manipur' },
+      { value: 'ML', label: 'Meghalaya' },
+      { value: 'MZ', label: 'Mizoram' },
+      { value: 'NL', label: 'Nagaland' },
+      { value: 'OD', label: 'Odisha' },
+      { value: 'PY', label: 'Pondicherry' },
+      { value: 'PB', label: 'Punjab' },
+      { value: 'RJ', label: 'Rajasthan' },
+      { value: 'SK', label: 'Sikkim' },
+      { value: 'TN', label: 'Tamil Nadu' },
+      { value: 'TS', label: 'Telangana' },
+      { value: 'TR', label: 'Tripura' },
+      { value: 'UP', label: 'Uttar Pradesh' },
+      { value: 'UK', label: 'Uttarakhand' },
+      { value: 'WB', label: 'West Bengal' }
+    ];
   
     
       const submitSeries = (data) => {
@@ -50,8 +88,10 @@ function SeriesMasterTwo({ rows_data  }) {
         if(!rows_data){
          data = { ...data, entity_code: entity_code, div_code: div_code };
         }
-       
+        
+        
         if(rows_data){
+          console.log(data);
           Axios.post(`/api/series/${rows_data.series_code}`, data)
           .then((response) => {
              alert(`Series Updated Successfully`)
@@ -88,8 +128,8 @@ function SeriesMasterTwo({ rows_data  }) {
 
     
       // console.log(watch("div_code")) // watch input value by passing the name of it
-      const handleInputChange = (event) => {
-        const value = event.target.value.slice(0, 2).toUpperCase();
+      const handleInputChange = (event, charLength) => {
+        const value = event.target.value.slice(0, charLength).toUpperCase();
         event.target.value = value;
       };
       const handleInputChangeFiveChar = (event) => {
@@ -130,11 +170,36 @@ function SeriesMasterTwo({ rows_data  }) {
             dispatch(removeTodo(todo.id))
           })
         }
-      },[todos])
+      },[todos]);
+      useEffect(()=>{
+        if(!div_code? div_code: rows_data?.div_code || div_code){
+        Axios.get(`/api/division/:${div_code? div_code: rows_data?.div_code || div_code}`)
+        .then((response) => {
+          if(response){
+            if(response.data.data.entity_code !== entity_code? entity_code: rows_data?.entity_code|| entity_code){
+              alert(`The selected division ${div_code? div_code: rows_data?.div_code || div_code}: ${div_code? div_name: rows_data?.div_name|| div_name} is not in entity ${entity_code? entity_code: rows_data?.entity_code|| entity_code}: ${entity_code? entity_name: rows_data?.entity_name|| entity_name}, Please correct the division.`);
+              divEntityCheck=false;
+              
+            setDiv_code('')
+            setDiv_name('')
+              return;
+            }
+          }
+        })
+        .catch((error) => {
+            // navigate('/')
+          console.log(error)
+          
+        })
+      }
+      },[entity_code])
 
       const filters = {
-        entity_code: entity_code,
-        div_code: div_code,
+        // entity_code: entity_code,
+        entity_code: entity_code? entity_code: rows_data?.entity_code ||entity_code,
+        // div_code:rows_data?.div_code || div_code,
+        div_code: div_code? div_code: rows_data?.div_code || div_code,
+        // div_code: div_code,
         // series_code: series_code,
           };
       
@@ -193,7 +258,7 @@ function SeriesMasterTwo({ rows_data  }) {
             {...register("div_code", { required: true })}
           /> */}
                    <Input
-          label ='Devision'
+          label ='Division'
           type="text"
           id="divCodeInput"
           value={div_code}
@@ -226,7 +291,7 @@ function SeriesMasterTwo({ rows_data  }) {
         <Input
         label='Series'
         {...register("series_code", { required: true } )}
-        onChange={handleInputChange}
+        onChange={()=>handleInputChange(event,2)}
         />
         
         </div>
@@ -240,17 +305,16 @@ function SeriesMasterTwo({ rows_data  }) {
         <div className="w-6/12 sm:w-6/12">
         <Input
         label='Post Code'
-        {...register("post_code", { required: true, 
-        } )}
-        onChange={handleInputChangeFiveChar}
+        {...register("post_code", {} )}
+        onChange={()=>handleInputChange(event,5)}
         />
         </div>
         <div className="w-6/12 sm:w-6/12">
         {isBankIdVisible && (
         <Input
           label='Bank Id'
-          {...register("bankId", { required: true })}
-          onChange={handleInputChange}
+          {...register("bankId", { })}
+          onChange={()=>handleInputChange(event,2)}
         />
       )}
         </div>
@@ -276,7 +340,7 @@ function SeriesMasterTwo({ rows_data  }) {
                         <option>Sales</option>
                         <option>Cash</option>
                         <option>Indent</option>
-                        <option>Sales Contract</option>
+                        <option>Sales_Contract</option>
                        
                         </select>
         {/* </div> */}
@@ -301,6 +365,26 @@ function SeriesMasterTwo({ rows_data  }) {
       
         {/* </div> */}
         </div>
+          </div>
+          <div className="flex mt-2">
+            <div>
+          <label htmlFor="state_code" className="pr-12 sm:pr-20">
+        State
+      </label>
+      </div>
+      
+      <select
+        {...register("state_code")}
+        // className={`block w-full mt-1 px-3 py-2 bg-blue-200 text-black outline-blue-500 focus:bg-gray-50 duration-200 border border-blue-400 rounded-md`}
+        className={`px-3 py-1 bg-blue-200 text-black outline-blue-500 focus:bg-gray-50 duration-200 border border-blue-400 w-full`}
+      
+      >
+        {stateCodes.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
           </div>
     {/* <div className="flex">
       <div className="w-6/12 ">

@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 function CbjExcelDaybookDrCrBackUp() {
   const navigate = useNavigate();
   const [file, setFile] = useState(null);
+  const [processedData, setProcessedData] = useState(null);
 //   const [serieses, setSerieses] = useState([
 // {bankid:'A1'  , series:'WA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
 // {bankid:'A1'  , series:'RA'  , postCode:'BE003'    ,beheading:'PNB CC A/C-0412008700006723'},
@@ -119,6 +120,21 @@ function CbjExcelDaybookDrCrBackUp() {
           'AAA05' : '',
           'as Tally Excel' : ''
         });
+        csvFormateData.push({
+          'Date' : 'Note : ',
+        })
+        csvFormateData.push({
+          'Date' : '1- Post code/Acc code should be start from cloumn "N" and row number 1.',
+        })
+        csvFormateData.push({
+          'Date' : '2- Post code name/ Acc code name should be start from cloumn "N" and row number 2.',
+        })
+        csvFormateData.push({
+          'Date': '3- Data cloumn should be start from row number 3'
+        })
+        csvFormateData.push({
+          'Date': '4- All the values should be end with Dr or Cr '
+        })
         const newWorksheeta = XLSX.utils.json_to_sheet(csvFormateData);
     const newWorkbooka = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(newWorkbooka, newWorksheeta, 'Sheet1');
@@ -766,11 +782,39 @@ useEffect(() =>{
   }
 },[series_code]);
 
+useEffect(()=>{
+  if(div_code){
+  axios.get(`/api/division/:${div_code}`)
+  .then((response) => {
+    if(response){
+      if(response.data.data.entity_code !== entity_code? entity_code:''){
+        alert(`The selected division ${div_code}: ${div_name} is not in entity ${entity_code}: ${entity_name}, Please correct the division.`);
+        
+        
+      setDiv_code('')
+      setDiv_name('')
+        return;
+      }
+    }
+  })
+  .catch((error) => {
+      // navigate('/')
+    console.log(error)
+    
+  })
+}
+},[entity_code])
+
+useEffect(()=>{
+  setSeries_code('');
+  setSeries_name('');
+},[entity_code,div_code,tranType ])
 
   const filters = {
     entity_code: entity_code,
     div_code: div_code,
-    series_code: series_code,
+    series_code: series_code, 
+    tran_type: tranType
       };
 
 
@@ -841,25 +885,6 @@ useEffect(() =>{
               />
               </div>
               </div>
-              <div className=" flex">
-                <div className=" w-5/12 sm:w-3/12">
-              <Input
-                  label ='Series'
-                  value={series_code}
-                  onClick={handleSeriesClick}
-                  onChange={handleChange}
-                  required
-              />
-              </div>
-              <div className=" w-7/12 sm:w-9/12">
-              <Input
-              value={series_name}
-              onClick={handleSeriesClick}
-              onChange={handleChange}
-              
-              />
-              </div>
-              </div>
               <div className="w-full flex mt-2 mb-1">
                     <label className=" w-64">
                     Tran Type
@@ -880,6 +905,26 @@ useEffect(() =>{
                        
                         </select>
                     </div>
+              <div className=" flex">
+                <div className=" w-5/12 sm:w-3/12">
+              <Input
+                  label ='Series'
+                  value={series_code}
+                  onClick={handleSeriesClick}
+                  onChange={handleChange}
+                  required
+              />
+              </div>
+              <div className=" w-7/12 sm:w-9/12">
+              <Input
+              value={series_name}
+              onClick={handleSeriesClick}
+              onChange={handleChange}
+              
+              />
+              </div>
+              </div>
+             
 
                 <div className="flex">
                  <div className="w-6/12">

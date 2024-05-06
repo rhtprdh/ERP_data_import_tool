@@ -133,7 +133,7 @@ function SeriesSeqTwo({ rows_data  }) {
            <div className=" m-2 min-h-[100px] rounded shadow-xl sm:col-span-4 bg-slate-300  justify-center items-center">
 
     <form onSubmit={handleSubmit(submitSeries)} className="m-1">
-    <div className="sm:flex">
+    {/* <div className="sm:flex">
     <div className="flex sm:w-1/2 ">
         <div className="w-5/12 sm:w-4/12">
                <Input
@@ -179,7 +179,7 @@ function SeriesSeqTwo({ rows_data  }) {
               />
         </div>
         </div>
-    </div>
+    </div> */}
     <div className="flex">
         <div className="flex w-1/2">
         {/* <div className="w-1/2"> */}
